@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-88-scenario-01",
+  "experienceId": "dk-lesson-88",
+  "title": "How do you keep up with the news?",
+  "order": 1,
+  "setting": "你和朋友在咖啡馆聊天，话题转到新闻和媒体。你想问对方平时通过什么渠道了解新闻。",
+  "background": "dk-family-cafe",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "friend",
+      "name": "朋友",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "friend-opens",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "There is so much news online these days."
+    },
+    {
+      "id": "ask-news-source",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想问对方通常怎样了解新闻，会怎么说？",
+      "choices": [
+        {
+          "id": "ask-natural",
+          "text": "How do you usually keep up with the news?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "How do you usually keep up with the news?",
+            "explanation": "keep up with the news 表示“持续了解新闻动态”，是自然且常用的搭配。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "keep up with the news",
+                "news source"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ask-simple",
+          "text": "Where do you usually get your news?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "Where do you usually get your news?",
+            "explanation": "get your news 表示“获取新闻”，适合询问新闻来源。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "ask-awkward",
+          "text": "Where are you knowing the news?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "可以猜出意思",
+            "naturalExpression": "Where do you usually get your news?",
+            "explanation": "know 通常不用于这种进行时结构；询问信息来源应使用 get your news。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-answers",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "I usually read a news app in the morning and listen to podcasts on my way to work.",
+      "endScenario": true
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-95-scenario-01",
+  "experienceId": "dk-lesson-95",
+  "title": "Is it okay if I post this photo?",
+  "order": 1,
+  "setting": "你和朋友刚拍了一张合照。把照片发到社交媒体之前，你想先征得对方同意。",
+  "background": "dk-family-cafe",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "friend",
+      "name": "朋友",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "ask-post-permission",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想询问是否可以发布这张合照，会怎么说？",
+      "choices": [
+        {
+          "id": "post-natural",
+          "text": "Is it okay if I post this photo?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然又尊重他人",
+            "naturalExpression": "Is it okay if I post this photo?",
+            "explanation": "Is it okay if I...? 是征求许可的自然表达，适合涉及他人照片和隐私时使用。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "post a photo",
+                "tag someone"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "post-polite",
+          "text": "Would you mind if I shared this photo online?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "礼貌自然",
+            "naturalExpression": "Would you mind if I shared this photo online?",
+            "explanation": "Would you mind if...? 语气礼貌，shared 使用过去式是该句型的常见形式。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "post-assume",
+          "text": "I'm posting this photo of us.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "没有真正征求同意",
+            "naturalExpression": "Is it okay if I post this photo of us?",
+            "explanation": "直接宣布要发布可能忽略对方的隐私，应明确询问是否同意。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-agrees",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "Sure, that's fine. Just don't forget to tag me!",
+      "endScenario": true
+    }
+  ]
+}

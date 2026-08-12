@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-90-scenario-01",
+  "experienceId": "dk-lesson-90",
+  "title": "Are you free to talk?",
+  "order": 1,
+  "setting": "你晚上给朋友打电话，想先确认对方现在是否方便聊天。",
+  "background": "dk-family-cafe",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "friend",
+      "name": "朋友",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "friend-answers-call",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "Hey! What's up?"
+    },
+    {
+      "id": "check-availability",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想先确认朋友是否方便通话，会怎么说？",
+      "choices": [
+        {
+          "id": "check-natural",
+          "text": "Hi, are you free to talk for a minute?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然又体贴",
+            "naturalExpression": "Are you free to talk for a minute?",
+            "explanation": "Are you free to talk? 是非正式电话中确认对方是否方便的自然说法。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "What's up?",
+                "free to talk"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "check-casual",
+          "text": "Hey, is now a good time?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "Is now a good time?",
+            "explanation": "Is now a good time? 简短友好，默认指现在是否方便通话。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "check-awkward",
+          "text": "Can you talk with me now or not?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "语气稍显强硬",
+            "naturalExpression": "Are you free to talk right now?",
+            "explanation": "or not 容易带出催促或不耐烦的语气，朋友间也更适合柔和询问。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-confirms",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "Sure, I've got a few minutes. What's going on?",
+      "endScenario": true
+    }
+  ]
+}

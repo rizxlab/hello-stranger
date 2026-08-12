@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hello-stranger.local/schemas/short-series.schema.json",
+  "title": "Hello Stranger Short Scene Series",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "summary",
+    "eyebrow",
+    "experienceLabel",
+    "contentType",
+    "cover",
+    "order"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "eyebrow": { "type": "string", "minLength": 1 },
+    "experienceLabel": { "type": "string", "minLength": 1 },
+    "contentType": {
+      "enum": ["short-scenes", "conversation-experiences"]
+    },
+    "cover": { "type": "string", "minLength": 1 },
+    "order": { "type": "integer", "minimum": 0 }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-89-scenario-01",
+  "experienceId": "dk-lesson-89",
+  "title": "Could I speak to Ms Brown, please?",
+  "order": 1,
+  "setting": "你需要给一家公司打电话联系 Brown 女士。电话由前台接听，你需要礼貌地请求转接。",
+  "background": "airport-checkin",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "receptionist",
+      "name": "公司前台",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "receptionist-opens",
+      "type": "line",
+      "speakerId": "receptionist",
+      "text": "Good morning, Greenfield Design. How may I help you?"
+    },
+    {
+      "id": "request-transfer",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想请前台转接 Brown 女士，会怎么说？",
+      "choices": [
+        {
+          "id": "request-natural",
+          "text": "Good morning. Could I speak to Ms Brown, please?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "正式且自然",
+            "naturalExpression": "Could I speak to Ms Brown, please?",
+            "explanation": "Could I speak to...? 是正式电话中礼貌请求与某人通话的标准表达。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "Could I speak to...?",
+                "put you through"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "request-direct",
+          "text": "May I speak to Ms Brown, please?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "礼貌自然",
+            "naturalExpression": "May I speak to Ms Brown, please?",
+            "explanation": "May I...? 语气正式礼貌，也非常适合商务电话。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "request-rude",
+          "text": "Give me Ms Brown.",
+          "feedback": {
+            "naturalness": 1,
+            "assessment": "过于直接",
+            "naturalExpression": "Could I speak to Ms Brown, please?",
+            "explanation": "Give me... 在正式电话中显得命令性太强，应使用 Could I speak to...?。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "receptionist-transfers",
+      "type": "line",
+      "speakerId": "receptionist",
+      "text": "Certainly. Please hold while I put you through.",
+      "endScenario": true
+    }
+  ]
+}

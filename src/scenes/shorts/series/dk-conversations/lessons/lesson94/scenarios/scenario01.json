@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-94-scenario-01",
+  "experienceId": "dk-lesson-94",
+  "title": "You're breaking up.",
+  "order": 1,
+  "setting": "你和朋友进行视频通话，但网络不稳定，对方的声音断断续续。你需要请对方重复刚才的话。",
+  "background": "dk-family-cafe",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "friend",
+      "name": "朋友",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "friend-garbled",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "I was saying that we could meet near the—can you hear me?"
+    },
+    {
+      "id": "report-connection",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "对方声音断断续续，你会怎么说？",
+      "choices": [
+        {
+          "id": "connection-natural",
+          "text": "You're breaking up. Could you say that again?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "You're breaking up. Could you say that again?",
+            "explanation": "break up 在通话语境中表示声音因信号问题而断断续续。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "listening",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "break up",
+                "say that again"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "connection-simple",
+          "text": "The connection is bad. Could you repeat that?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "清楚自然",
+            "naturalExpression": "Could you repeat that?",
+            "explanation": "直接说明网络问题并请求重复，表达清晰且容易理解。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "listening",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "connection-awkward",
+          "text": "Your words are cutting.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "表达不自然",
+            "naturalExpression": "Your voice keeps cutting out.",
+            "explanation": "可说 your voice keeps cutting out，表示声音不断消失；words are cutting 不自然。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "listening",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-repeats",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "Sure. I said we could meet near the station at seven.",
+      "endScenario": true
+    }
+  ]
+}

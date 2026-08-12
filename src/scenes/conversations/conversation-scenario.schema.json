@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hello-stranger.local/schemas/conversation-scenario.schema.json",
+  "title": "Conversation Scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "experienceId", "title", "order", "setting", "background", "participants", "turns"],
+  "properties": {
+    "$schema": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "experienceId": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "order": { "type": "integer", "minimum": 1 },
+    "setting": { "type": "string", "minLength": 1 },
+    "background": { "type": "string", "minLength": 1 },
+    "participants": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "role"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["player", "partner"] }
+        }
+      }
+    },
+    "turns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/lineTurn" },
+          { "$ref": "#/$defs/choiceTurn" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "lineTurn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "speakerId", "text"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "const": "line" },
+        "speakerId": { "type": "string", "minLength": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "translation": { "type": "string", "minLength": 1 },
+        "endScenario": { "type": "boolean" }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["naturalness", "assessment", "explanation"],
+      "properties": {
+        "naturalness": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "assessment": { "type": "string", "minLength": 1 },
+        "naturalExpression": { "type": "string", "minLength": 1 },
+        "explanation": { "type": "string", "minLength": 1 }
+      }
+    },
+    "reward": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "stat", "amount"],
+          "properties": {
+            "type": { "const": "stat" },
+            "stat": { "enum": ["speaking", "listening", "reading", "vocabulary"] },
+            "amount": { "type": "number" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "words"],
+          "properties": {
+            "type": { "const": "vocabulary" },
+            "words": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "choiceTurn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "speakerId", "prompt", "choices"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "const": "choice" },
+        "speakerId": { "type": "string", "minLength": 1 },
+        "prompt": { "type": "string", "minLength": 1 },
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "text", "feedback"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "text": { "type": "string", "minLength": 1 },
+              "nextTurnId": { "type": "string", "minLength": 1 },
+              "feedback": { "$ref": "#/$defs/feedback" },
+              "rewards": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/reward" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

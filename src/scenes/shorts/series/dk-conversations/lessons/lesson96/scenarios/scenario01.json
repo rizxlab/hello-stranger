@@ -1,0 +1,96 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-96-scenario-01",
+  "experienceId": "dk-lesson-96",
+  "title": "What does this word mean?",
+  "order": 1,
+  "setting": "你和同学一起阅读一篇英文文章。你遇到一个不认识的单词，想请对方解释它的意思。",
+  "background": "metro-station",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "classmate",
+      "name": "同学",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "ask-word-meaning",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想询问文章中一个单词的意思，会怎么说？",
+      "choices": [
+        {
+          "id": "meaning-natural",
+          "text": "What does this word mean?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "What does this word mean?",
+            "explanation": "What does ... mean? 是询问单词、短语或句子含义的标准句型。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "reading",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "What does ... mean?",
+                "context"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "meaning-context",
+          "text": "Do you know what this word means in this context?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "具体自然",
+            "naturalExpression": "What does this word mean in this context?",
+            "explanation": "加上 in this context 可以强调询问该词在当前上下文中的具体含义。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "reading",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "meaning-wrong-order",
+          "text": "What means this word?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "语序不正确",
+            "naturalExpression": "What does this word mean?",
+            "explanation": "一般疑问结构需要助动词 does，语序是 What does + 主语 + mean?。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "reading",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "classmate-explains",
+      "type": "line",
+      "speakerId": "classmate",
+      "text": "It means that something is likely to happen. The next sentence gives you a clue.",
+      "endScenario": true
+    }
+  ]
+}

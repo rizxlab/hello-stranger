@@ -1,0 +1,256 @@
+{
+  "$schema": "../../../story.schema.json",
+  "schemaVersion": 1,
+  "id": "chapter01",
+  "storyId": "hello-stranger",
+  "title": "起飞之前",
+  "chapterNumber": 1,
+  "summary": "从地铁站出发，完成值机、安检并找到登机口。",
+  "startSceneId": "metro_station",
+  "startNodeId": "metro_ticket_intro",
+  "characters": [
+    { "id": "lin", "name": "Lin", "avatar": "lin" },
+    { "id": "maya", "name": "Maya", "avatar": "maya" },
+    { "id": "alex", "name": "Alex", "avatar": "alex" },
+    { "id": "elena", "name": "Elena", "avatar": "elena" }
+  ],
+  "scenes": [
+    {
+      "id": "metro_station",
+      "title": "地铁站 · 售票处",
+      "background": "metro-station",
+      "objective": "向售票员购买前往机场的车票",
+      "actors": [
+        {
+          "id": "ticket_clerk",
+          "characterId": "lin",
+          "label": "售票员 Lin",
+          "placement": {
+            "default": { "x": 27, "y": 43 },
+            "portrait": { "x": 24, "y": 44 },
+            "landscape": { "x": 27, "y": 43 }
+          },
+          "interaction": { "type": "dialogue", "targetId": "metro_ticket_intro" }
+        }
+      ],
+      "nextSceneId": "airport_checkin"
+    },
+    {
+      "id": "airport_checkin",
+      "title": "机场 · 值机柜台",
+      "background": "airport-checkin",
+      "objective": "出示护照并办理值机",
+      "actors": [
+        {
+          "id": "checkin_agent",
+          "characterId": "maya",
+          "label": "值机员 Maya",
+          "placement": {
+            "default": { "x": 51, "y": 42 },
+            "portrait": { "x": 51, "y": 49 },
+            "landscape": { "x": 51, "y": 42 }
+          },
+          "interaction": { "type": "dialogue", "targetId": "checkin_intro" }
+        }
+      ],
+      "nextSceneId": "airport_security"
+    },
+    {
+      "id": "airport_security",
+      "title": "机场 · 安检区",
+      "background": "airport-security",
+      "objective": "确认笔记本电脑是否需要取出",
+      "actors": [
+        {
+          "id": "security_officer",
+          "characterId": "alex",
+          "label": "安检员 Alex",
+          "placement": {
+            "default": { "x": 72, "y": 42 },
+            "portrait": { "x": 75, "y": 50 },
+            "landscape": { "x": 72, "y": 42 }
+          },
+          "interaction": { "type": "dialogue", "targetId": "security_intro" }
+        }
+      ],
+      "nextSceneId": "boarding_gate"
+    },
+    {
+      "id": "boarding_gate",
+      "title": "机场 · 登机口",
+      "background": "boarding-gate",
+      "objective": "确认航班并准备登机",
+      "actors": [
+        {
+          "id": "gate_agent",
+          "characterId": "elena",
+          "label": "登机口工作人员 Elena",
+          "placement": {
+            "default": { "x": 70, "y": 43 },
+            "portrait": { "x": 72, "y": 51 },
+            "landscape": { "x": 70, "y": 43 }
+          },
+          "interaction": { "type": "dialogue", "targetId": "gate_intro" }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "metro_ticket_intro",
+      "location": "Metro station",
+      "background": "metro-station",
+      "dialogue": [
+        { "id": "metro_greeting", "speakerId": "lin", "text": "Good morning. Where are you going?", "translation": "早上好。你要去哪里？" }
+      ],
+      "choices": [
+        {
+          "id": "metro_natural",
+          "text": "I'd like a ticket to the airport, please.",
+          "nextNodeId": "metro_ticket_done",
+          "feedback": { "naturalness": 5, "assessment": "非常自然", "naturalExpression": "I'd like a ticket to the airport, please.", "explanation": "I'd like... 是礼貌表达需求的自然说法，句末加 please 更友好。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 5 }, { "type": "vocabulary", "words": ["ticket", "airport"] }]
+        },
+        {
+          "id": "metro_clear",
+          "text": "I want one ticket for airport.",
+          "nextNodeId": "metro_ticket_done",
+          "feedback": { "naturalness": 3, "assessment": "可以理解", "naturalExpression": "I'd like a ticket to the airport, please.", "explanation": "意思可以理解，但 to the airport 和 I'd like... 会更自然。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 2 }, { "type": "vocabulary", "words": ["ticket"] }]
+        },
+        {
+          "id": "metro_unclear",
+          "text": "Airport. One.",
+          "nextNodeId": "metro_ticket_done",
+          "feedback": { "naturalness": 2, "assessment": "表达不够完整", "naturalExpression": "I'd like a ticket to the airport, please.", "explanation": "关键词能传达目的，但完整句子更清楚，也更有礼貌。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "metro_ticket_done",
+      "location": "Metro station",
+      "background": "metro-station",
+      "dialogue": [
+        { "id": "metro_directions", "speakerId": "lin", "text": "Of course. The airport train leaves from Platform 2.", "translation": "当然。机场列车从 2 号站台出发。" }
+      ]
+    },
+    {
+      "id": "checkin_intro",
+      "location": "Airport check-in",
+      "background": "airport-checkin",
+      "dialogue": [
+        { "id": "checkin_greeting", "speakerId": "maya", "text": "Hello. May I see your passport?", "translation": "你好。可以看一下你的护照吗？" }
+      ],
+      "choices": [
+        {
+          "id": "checkin_natural",
+          "text": "I'd like to check in. Here is my passport.",
+          "nextNodeId": "checkin_done",
+          "feedback": { "naturalness": 5, "assessment": "非常自然", "naturalExpression": "I'd like to check in. Here is my passport.", "explanation": "check in 表示办理值机；Here is... 用来递交物品很自然。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 5 }, { "type": "vocabulary", "words": ["check in", "passport"] }]
+        },
+        {
+          "id": "checkin_clear",
+          "text": "I want check in. This is passport.",
+          "nextNodeId": "checkin_done",
+          "feedback": { "naturalness": 3, "assessment": "可以理解", "naturalExpression": "I'd like to check in. Here is my passport.", "explanation": "需要说 want to check in；递交护照时 Here is my passport 更地道。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 2 }, { "type": "vocabulary", "words": ["passport"] }]
+        },
+        {
+          "id": "checkin_unclear",
+          "text": "Check in me, please.",
+          "nextNodeId": "checkin_done",
+          "feedback": { "naturalness": 2, "assessment": "表达需要调整", "naturalExpression": "I'd like to check in, please.", "explanation": "check in 在这里作为不及物短语，不需要接 me。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "checkin_done",
+      "location": "Airport check-in",
+      "background": "airport-checkin",
+      "dialogue": [
+        { "id": "checkin_complete", "speakerId": "maya", "text": "Thank you. Your bag is checked, and here is your boarding pass.", "translation": "谢谢。行李已经托运，这是你的登机牌。" }
+      ]
+    },
+    {
+      "id": "security_intro",
+      "location": "Airport security",
+      "background": "airport-security",
+      "dialogue": [
+        { "id": "security_instruction", "speakerId": "alex", "text": "Please put your bag in the tray.", "translation": "请把包放进托盘里。" }
+      ],
+      "choices": [
+        {
+          "id": "security_natural",
+          "text": "Do I need to take out my laptop?",
+          "nextNodeId": "security_done",
+          "feedback": { "naturalness": 5, "assessment": "非常自然", "naturalExpression": "Do I need to take out my laptop?", "explanation": "Do I need to...? 是确认规定或步骤时很实用的表达。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 5 }, { "type": "vocabulary", "words": ["take out", "laptop"] }]
+        },
+        {
+          "id": "security_clear",
+          "text": "Must I take my laptop out?",
+          "nextNodeId": "security_done",
+          "feedback": { "naturalness": 4, "assessment": "自然且正确", "naturalExpression": "Do I need to take out my laptop?", "explanation": "语法正确，但日常对话中 Do I need to...? 通常更自然。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }, { "type": "vocabulary", "words": ["laptop"] }]
+        },
+        {
+          "id": "security_unclear",
+          "text": "Laptop outside?",
+          "nextNodeId": "security_done",
+          "feedback": { "naturalness": 2, "assessment": "表达不够完整", "naturalExpression": "Do I need to take out my laptop?", "explanation": "能靠语境理解，但 take out 才是“从包里取出”的准确短语。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "security_done",
+      "location": "Airport security",
+      "background": "airport-security",
+      "dialogue": [
+        { "id": "security_answer", "speakerId": "alex", "text": "Yes, please. Put it in a separate tray.", "translation": "是的，请取出来，放在单独的托盘里。" }
+      ]
+    },
+    {
+      "id": "gate_intro",
+      "location": "Boarding gate",
+      "background": "boarding-gate",
+      "dialogue": [
+        { "id": "gate_greeting", "speakerId": "elena", "text": "Good afternoon. Can I help you?", "translation": "下午好。有什么可以帮你？" }
+      ],
+      "choices": [
+        {
+          "id": "gate_natural",
+          "text": "Is this the gate for Flight 218?",
+          "nextNodeId": "gate_done",
+          "feedback": { "naturalness": 5, "assessment": "非常自然", "naturalExpression": "Is this the gate for Flight 218?", "explanation": "the gate for + 航班号，是确认登机口的简洁自然说法。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 5 }, { "type": "vocabulary", "words": ["gate", "flight"] }]
+        },
+        {
+          "id": "gate_clear",
+          "text": "Flight 218 is here?",
+          "nextNodeId": "gate_done",
+          "feedback": { "naturalness": 3, "assessment": "可以理解", "naturalExpression": "Is this the gate for Flight 218?", "explanation": "意思清楚，但询问地点时用 Is this the gate for...? 更准确。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 2 }, { "type": "vocabulary", "words": ["flight"] }]
+        },
+        {
+          "id": "gate_unclear",
+          "text": "Where 218?",
+          "nextNodeId": "gate_done",
+          "feedback": { "naturalness": 2, "assessment": "表达不够完整", "naturalExpression": "Where is the gate for Flight 218?", "explanation": "疑问句需要 is，并说明你在寻找 gate。" },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "gate_done",
+      "location": "Boarding gate",
+      "background": "boarding-gate",
+      "dialogue": [
+        { "id": "gate_answer", "speakerId": "elena", "text": "Yes, it is. Boarding will begin in ten minutes.", "translation": "是的。十分钟后开始登机。" }
+      ]
+    }
+  ]
+}
