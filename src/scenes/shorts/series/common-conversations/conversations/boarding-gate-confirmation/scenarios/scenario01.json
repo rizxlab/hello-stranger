@@ -1,0 +1,76 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "boarding-gate-confirmation-01",
+  "experienceId": "boarding-gate-confirmation",
+  "title": "Is this the gate for Flight 218?",
+  "order": 1,
+  "setting": "你已经来到机场候机区。为了避免走错登机口，你准备向工作人员确认 218 航班是否从这里登机。",
+  "background": "boarding-gate",
+  "participants": [
+    { "id": "player", "name": "你", "role": "player" },
+    { "id": "airport-staff", "name": "机场工作人员", "role": "partner" }
+  ],
+  "turns": [
+    {
+      "id": "staff-greeting",
+      "type": "line",
+      "speakerId": "airport-staff",
+      "text": "Good evening. Are you looking for a flight?"
+    },
+    {
+      "id": "confirm-gate",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你会怎样确认 218 航班的登机口？",
+      "choices": [
+        {
+          "id": "gate-natural",
+          "text": "Excuse me, is this the gate for Flight 218?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Excuse me, is this the gate for Flight 218?",
+            "explanation": "先用 Excuse me 引起注意，再用 Is this the gate for...? 确认信息，清楚而礼貌。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["gate", "flight"] }
+          ]
+        },
+        {
+          "id": "gate-clear",
+          "text": "Flight 218 is here?",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解",
+            "naturalExpression": "Is this the gate for Flight 218?",
+            "explanation": "意思能够理解，但直接询问 gate 会更加准确。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 2 }
+          ]
+        },
+        {
+          "id": "gate-unclear",
+          "text": "Where 218?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "表达不够完整",
+            "naturalExpression": "Where is the gate for Flight 218?",
+            "explanation": "需要补充 is 和 gate，才能形成清楚的完整问题。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "staff-answer",
+      "type": "line",
+      "speakerId": "airport-staff",
+      "text": "Yes, it is. Boarding starts in ten minutes.",
+      "endScenario": true
+    }
+  ]
+}

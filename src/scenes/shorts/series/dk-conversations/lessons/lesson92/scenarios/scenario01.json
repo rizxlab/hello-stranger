@@ -1,0 +1,108 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-92-scenario-01",
+  "experienceId": "dk-lesson-92",
+  "title": "I can't hear you.",
+  "order": 1,
+  "setting": "你正在参加视频会议，但完全听不到同事的声音。你需要说明问题并请对方检查麦克风。",
+  "background": "metro-station",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "colleague",
+      "name": "同事",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "colleague-checks",
+      "type": "line",
+      "speakerId": "colleague",
+      "text": "Can everyone see my screen?"
+    },
+    {
+      "id": "report-audio-problem",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你听不到对方的声音，会怎么提醒他？",
+      "choices": [
+        {
+          "id": "audio-natural",
+          "text": "I can't hear you. Could you check your microphone?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "清楚自然",
+            "naturalExpression": "I can't hear you. Could you check your microphone?",
+            "explanation": "先说明具体问题，再提出解决建议，是远程会议中清晰自然的表达。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "microphone",
+                "I can't hear you"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "audio-muted",
+          "text": "I think you might be on mute.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常实用",
+            "naturalExpression": "I think you might be on mute.",
+            "explanation": "be on mute 表示“处于静音状态”，是视频会议中的高频表达。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "on mute"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "audio-awkward",
+          "text": "Your voice is not coming.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "可以理解但不自然",
+            "naturalExpression": "I can't hear you.",
+            "explanation": "英语通常从听者角度说 I can't hear you，而不说声音“没有过来”。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colleague-fixes",
+      "type": "line",
+      "speakerId": "colleague",
+      "text": "You're right—I was on mute. Can you hear me now?",
+      "endScenario": true
+    }
+  ]
+}

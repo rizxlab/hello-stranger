@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hello-stranger.local/schemas/conversation-experience.schema.json",
+  "title": "Conversation Experience",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "seriesId", "kind", "title", "summary", "cover", "order"],
+  "properties": {
+    "$schema": { "type": "string", "minLength": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "seriesId": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["lesson", "standalone"] },
+    "number": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "cover": { "type": "string", "minLength": 1 },
+    "order": { "type": "integer", "minimum": 0 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "lesson" } } },
+      "then": { "required": ["number"] }
+    }
+  ]
+}

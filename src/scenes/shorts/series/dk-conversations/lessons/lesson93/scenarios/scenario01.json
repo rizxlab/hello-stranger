@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-93-scenario-01",
+  "experienceId": "dk-lesson-93",
+  "title": "I forgot to attach the file.",
+  "order": 1,
+  "setting": "你刚给同事发了一封工作邮件，随后发现忘记添加附件。你需要马上补发并说明情况。",
+  "background": "airport-checkin",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "colleague",
+      "name": "同事",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "colleague-asks",
+      "type": "line",
+      "speakerId": "colleague",
+      "text": "Thanks for the email. Was there supposed to be an attachment?"
+    },
+    {
+      "id": "explain-attachment",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你发现自己忘记添加附件，会怎么回复？",
+      "choices": [
+        {
+          "id": "attachment-natural",
+          "text": "Sorry, I forgot to attach the file. I've attached it now.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "清楚且专业",
+            "naturalExpression": "Sorry, I forgot to attach the file. I've attached it now.",
+            "explanation": "attach the file 是“添加附件”的标准搭配；后句清楚说明问题已修正。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "attach a file",
+                "attachment"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "attachment-formal",
+          "text": "My apologies—I left out the attachment. Please find it attached.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "正式自然",
+            "naturalExpression": "Please find it attached.",
+            "explanation": "Please find it attached. 是商务邮件中常见的正式表达。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "attachment-awkward",
+          "text": "I forgot to put the document in the email.",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "能理解但不够准确",
+            "naturalExpression": "I forgot to attach the file.",
+            "explanation": "邮件文件通常使用 attach，而不是 put...in the email。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colleague-confirms",
+      "type": "line",
+      "speakerId": "colleague",
+      "text": "Got it now. Thanks for sending it over.",
+      "endScenario": true
+    }
+  ]
+}

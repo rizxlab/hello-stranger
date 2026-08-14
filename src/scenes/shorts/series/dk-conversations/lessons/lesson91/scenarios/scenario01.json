@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-91-scenario-01",
+  "experienceId": "dk-lesson-91",
+  "title": "Could you tell me the Wi-Fi password?",
+  "order": 1,
+  "setting": "你在一家咖啡馆打开电脑准备处理事情，但还没有连接网络，于是向店员询问 Wi-Fi 密码。",
+  "background": "dk-family-cafe",
+  "participants": [
+    {
+      "id": "player",
+      "name": "你",
+      "role": "player"
+    },
+    {
+      "id": "staff",
+      "name": "咖啡馆店员",
+      "role": "partner"
+    }
+  ],
+  "turns": [
+    {
+      "id": "staff-checks",
+      "type": "line",
+      "speakerId": "staff",
+      "text": "Is everything okay with your table?"
+    },
+    {
+      "id": "ask-wifi",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想询问 Wi-Fi 密码，会怎么说？",
+      "choices": [
+        {
+          "id": "wifi-natural",
+          "text": "Yes, thanks. Could you tell me the Wi-Fi password?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "礼貌自然",
+            "naturalExpression": "Could you tell me the Wi-Fi password?",
+            "explanation": "Could you tell me...? 是向工作人员礼貌询问信息的常用句型。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            },
+            {
+              "type": "vocabulary",
+              "words": [
+                "Wi-Fi password",
+                "connect to the internet"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wifi-simple",
+          "text": "What's the Wi-Fi password, please?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "What's the Wi-Fi password, please?",
+            "explanation": "直接询问并加上 please，简洁而礼貌。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "id": "wifi-rude",
+          "text": "Give me your internet password.",
+          "feedback": {
+            "naturalness": 1,
+            "assessment": "语气过于命令式",
+            "naturalExpression": "Could I have the Wi-Fi password, please?",
+            "explanation": "Give me... 对店员显得不够礼貌；可使用 Could I have...?。"
+          },
+          "rewards": [
+            {
+              "type": "stat",
+              "stat": "speaking",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "staff-gives-password",
+      "type": "line",
+      "speakerId": "staff",
+      "text": "Of course. It's written at the bottom of your receipt.",
+      "endScenario": true
+    }
+  ]
+}

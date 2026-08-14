@@ -1,0 +1,76 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "metro-directions-01",
+  "experienceId": "metro-directions",
+  "title": "How do I get to the airport?",
+  "order": 1,
+  "setting": "你正在地铁站服务台前，准备乘车前往机场。你需要向工作人员询问应该怎样走。",
+  "background": "metro-station",
+  "participants": [
+    { "id": "player", "name": "你", "role": "player" },
+    { "id": "station-staff", "name": "地铁工作人员", "role": "partner" }
+  ],
+  "turns": [
+    {
+      "id": "staff-greeting",
+      "type": "line",
+      "speakerId": "station-staff",
+      "text": "Hello. Can I help you?"
+    },
+    {
+      "id": "ask-directions",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你会怎样询问前往机场的路线？",
+      "choices": [
+        {
+          "id": "directions-natural",
+          "text": "Excuse me, how do I get to the airport?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Excuse me, how do I get to the airport?",
+            "explanation": "How do I get to...? 是询问路线时最常用、自然的表达之一。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["get to", "airport"] }
+          ]
+        },
+        {
+          "id": "directions-clear",
+          "text": "How can I go to the airport?",
+          "feedback": {
+            "naturalness": 4,
+            "assessment": "自然清楚",
+            "naturalExpression": "How do I get to the airport?",
+            "explanation": "表达正确；日常问路时 How do I get to...? 更常见。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 2 }
+          ]
+        },
+        {
+          "id": "directions-unclear",
+          "text": "Airport, where?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "表达比较简略",
+            "naturalExpression": "Excuse me, how do I get to the airport?",
+            "explanation": "关键词可以被理解，但完整问句会更礼貌，也能得到更准确的路线。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "staff-answer",
+      "type": "line",
+      "speakerId": "station-staff",
+      "text": "Take the airport line from Platform 2. It's a direct train.",
+      "endScenario": true
+    }
+  ]
+}

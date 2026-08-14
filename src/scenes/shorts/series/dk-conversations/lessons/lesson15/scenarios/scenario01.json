@@ -1,0 +1,142 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-15-scenario-01",
+  "experienceId": "dk-lesson-15",
+  "title": "Do you have any brothers or sisters?",
+  "order": 1,
+  "setting": "你正在和一位刚认识的朋友闲聊。你想知道对方有没有兄弟姐妹，并向对方介绍自己的家庭情况。",
+  "background": "dk-family-cafe",
+  "participants": [
+    { "id": "player", "name": "你", "role": "player" },
+    { "id": "new-friend", "name": "新朋友", "role": "partner" }
+  ],
+  "turns": [
+    {
+      "id": "ask-about-siblings",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想问对方有没有兄弟姐妹，会怎么问？",
+      "choices": [
+        {
+          "id": "ask-natural",
+          "text": "Do you have any brothers or sisters?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Do you have any brothers or sisters?",
+            "explanation": "询问对方是否有兄弟姐妹时，Do you have any...? 是最自然、常用的表达。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["brother", "sister", "siblings"] }
+          ]
+        },
+        {
+          "id": "ask-understandable",
+          "text": "Have you got any brothers or sisters?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然，偏英式表达",
+            "naturalExpression": "Have you got any brothers or sisters?",
+            "explanation": "Have you got...? 在英式英语中很常见，意思和 Do you have...? 相同。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 }
+          ]
+        },
+        {
+          "id": "ask-unnatural",
+          "text": "Are you having brothers or sisters?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "可以猜出意思",
+            "naturalExpression": "Do you have any brothers or sisters?",
+            "explanation": "表示拥有家庭成员时，have 通常不用进行时，应使用 Do you have...?。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-answers",
+      "type": "line",
+      "speakerId": "new-friend",
+      "text": "Yes, I do. I have a younger sister."
+    },
+    {
+      "id": "friend-asks-back",
+      "type": "line",
+      "speakerId": "new-friend",
+      "text": "How about you? Do you have any brothers or sisters?"
+    },
+    {
+      "id": "answer-about-family",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "对方反问你的家庭情况，你会怎么回答？",
+      "choices": [
+        {
+          "id": "answer-natural",
+          "text": "Yes, I have an older brother.",
+          "nextTurnId": "friend-closes",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Yes, I have an older brother.",
+            "explanation": "older brother 表示哥哥；名词是可数单数时，记得使用冠词 an。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["older brother", "younger sister"] }
+          ]
+        },
+        {
+          "id": "answer-only-child",
+          "text": "No, I'm an only child.",
+          "nextTurnId": "friend-closes",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "No, I'm an only child.",
+            "explanation": "only child 是表达“独生子女”最自然、简洁的说法。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["only child"] }
+          ]
+        },
+        {
+          "id": "answer-private",
+          "text": "I'd rather not say.",
+          "nextTurnId": "friend-respects-boundary",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "礼貌地保留隐私",
+            "naturalExpression": "I'd rather not say.",
+            "explanation": "I'd rather not say. 表示“我不太想说”，语气比 I don't want to say. 更委婉自然。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["I'd rather not say"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-closes",
+      "type": "line",
+      "speakerId": "new-friend",
+      "text": "That's nice. It sounds like you're close.",
+      "endScenario": true
+    },
+    {
+      "id": "friend-respects-boundary",
+      "type": "line",
+      "speakerId": "new-friend",
+      "text": "No worries. I understand.",
+      "endScenario": true
+    }
+  ]
+}
