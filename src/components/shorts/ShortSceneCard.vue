@@ -1,20 +1,40 @@
 <script setup lang="ts">
 import { getBackgroundResource } from '@/config/storyResources'
 import type { ShortSceneDefinition } from '@/scenes/shorts/types'
+import {
+  imagePreloadService,
+  selectPreferredImageUrl
+} from '@/services/ImagePreloadService'
 
-defineProps<{
+const props = defineProps<{
   shortScene: ShortSceneDefinition
 }>()
+
+function preloadBackground(): void {
+  const startScene = props.shortScene.chapter.scenes.find(
+    (scene) => scene.id === props.shortScene.chapter.startSceneId
+  )
+  const resource = getBackgroundResource(
+    startScene?.background ?? props.shortScene.cover
+  )
+  const url = selectPreferredImageUrl(resource.url, resource.portraitUrl)
+  void imagePreloadService.load(url, { priority: 'low' }).catch(() => undefined)
+}
 </script>
 
 <template>
   <RouterLink
     :to="{ name: 'play-short', params: { shortId: shortScene.id } }"
     class="short-card"
+    @pointerenter="preloadBackground"
+    @focus="preloadBackground"
+    @touchstart.passive="preloadBackground"
   >
     <img
       :src="getBackgroundResource(shortScene.cover).url"
       :alt="shortScene.title"
+      loading="lazy"
+      decoding="async"
     />
     <span class="short-copy">
       <span class="short-meta">

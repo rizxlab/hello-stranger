@@ -75,6 +75,13 @@ const background = computed(() =>
   getBackgroundResource(session.currentScene.value?.background ?? '')
 )
 
+const nextBackgrounds = computed(() => {
+  const nextScene = session.nextScene.value
+  return nextScene
+    ? [getBackgroundResource(nextScene.background)]
+    : []
+})
+
 const avatarUrl = computed(() =>
   getAvatarResource(session.currentCharacter.value?.avatar)
 )
@@ -154,8 +161,8 @@ watch(
     <div v-else-if="session.phase.value !== 'complete' && session.currentScene.value" class="scene-shell">
       <SceneStage
         :scene="session.currentScene.value"
-        :background-url="background.url"
-        :portrait-background-url="background.portraitUrl"
+        :background-source="background"
+        :preload-background-sources="nextBackgrounds"
         :actors="actorModels"
         :can-advance="session.canAdvanceScene.value"
         :next-scene-title="session.nextScene.value?.title"

@@ -4,6 +4,7 @@ import libraryPortrait from '@/assets/images/shorts/dk-conversations/lesson44/li
 import restaurantPortrait from '@/assets/images/shorts/dk-conversations/lesson24/restaurant-portrait.jpg'
 import cinemaPortrait from '@/assets/images/shorts/dk-conversations/lesson27/cinema-portrait.jpg'
 import officePortrait from '@/assets/images/shorts/dk-conversations/lesson52/office-portrait.jpg'
+import officeWorkstationPortrait from '@/assets/images/shorts/dk-conversations/shared/office-workstation-portrait.jpg'
 import beachPortrait from '@/assets/images/shorts/dk-conversations/lesson77/beach-portrait.jpg'
 import hospitalPortrait from '@/assets/images/shorts/dk-conversations/lesson85/hospital-portrait.jpg'
 import type {
@@ -45,6 +46,11 @@ const resources: StoryResourceBundle = {
       '现代城市办公室',
       officePortrait,
       officePortrait
+    ),
+    'dk-office-workstation': background(
+      '现代办公室电脑工位',
+      officeWorkstationPortrait,
+      officeWorkstationPortrait
     ),
     'dk-cinema': background(
       '现代电影院大厅',

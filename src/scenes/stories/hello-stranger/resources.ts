@@ -6,10 +6,10 @@ import boardingGate from '@/assets/images/stories/hello-stranger/chapter01/backg
 import boardingGatePortrait from '@/assets/images/stories/hello-stranger/chapter01/backgrounds/boarding-gate-portrait.jpg'
 import metroStation from '@/assets/images/stories/hello-stranger/chapter01/backgrounds/metro-station.jpg'
 import metroStationPortrait from '@/assets/images/stories/hello-stranger/chapter01/backgrounds/metro-station-portrait.jpg'
-import alexAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/alex.jpg'
-import elenaAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/elena.jpg'
-import linAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/lin.jpg'
-import mayaAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/maya.jpg'
+import alexAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/alex.webp'
+import elenaAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/elena.webp'
+import linAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/lin.webp'
+import mayaAvatar from '@/assets/images/stories/hello-stranger/chapter01/characters/maya.webp'
 import type {
   BackgroundResource,
   StoryResourceBundle

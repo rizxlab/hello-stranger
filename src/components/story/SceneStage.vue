@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import ProgressiveSceneBackground from '@/components/media/ProgressiveSceneBackground.vue'
 import type { StoryScene } from '@/scenes/types'
+import type { ResponsiveImageSource } from '@/services/ImagePreloadService'
 import SceneActor from './SceneActor.vue'
 import SceneObjective from './SceneObjective.vue'
 import type { SceneActorViewModel } from './sceneTypes'
 
 defineProps<{
   scene: StoryScene
-  backgroundUrl: string
-  portraitBackgroundUrl?: string
+  backgroundSource: ResponsiveImageSource
+  preloadBackgroundSources?: readonly ResponsiveImageSource[]
   actors: readonly SceneActorViewModel[]
   canAdvance: boolean
   nextSceneTitle?: string
@@ -21,14 +23,12 @@ defineEmits<{
 
 <template>
   <section class="scene-stage" :aria-label="scene.title">
-    <picture class="scene-background">
-      <source
-        v-if="portraitBackgroundUrl"
-        media="(orientation: portrait)"
-        :srcset="portraitBackgroundUrl"
-      />
-      <img class="scene-background-image" :src="backgroundUrl" :alt="scene.title" />
-    </picture>
+    <ProgressiveSceneBackground
+      class="scene-background"
+      :source="backgroundSource"
+      :preload-sources="preloadBackgroundSources"
+      :alt="scene.title"
+    />
     <div class="scene-shade" aria-hidden="true"></div>
 
     <SceneActor
@@ -70,13 +70,6 @@ defineEmits<{
   inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.scene-background-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .scene-shade {

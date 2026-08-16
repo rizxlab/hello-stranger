@@ -2,9 +2,19 @@
 import ShortSceneCard from '@/components/shorts/ShortSceneCard.vue'
 import { getBackgroundResource } from '@/config/storyResources'
 import { listShortScenes, listShortSceneSeries } from '@/scenes/shorts'
+import {
+  imagePreloadService,
+  selectPreferredImageUrl
+} from '@/services/ImagePreloadService'
 
 const series = listShortSceneSeries()
 const shortScenes = listShortScenes(null)
+
+function preloadSeriesBackground(resourceKey: string): void {
+  const resource = getBackgroundResource(resourceKey)
+  const url = selectPreferredImageUrl(resource.url, resource.portraitUrl)
+  void imagePreloadService.load(url, { priority: 'low' }).catch(() => undefined)
+}
 </script>
 
 <template>
@@ -26,8 +36,16 @@ const shortScenes = listShortScenes(null)
           :key="item.id"
           :to="{ name: 'short-scene-series', params: { seriesId: item.id } }"
           class="series-card"
+          @pointerenter="preloadSeriesBackground(item.cover)"
+          @focus="preloadSeriesBackground(item.cover)"
+          @touchstart.passive="preloadSeriesBackground(item.cover)"
         >
-          <img :src="getBackgroundResource(item.cover).url" :alt="item.title" />
+          <img
+            :src="getBackgroundResource(item.cover).url"
+            :alt="item.title"
+            loading="lazy"
+            decoding="async"
+          />
           <span class="series-copy">
             <small>{{ item.eyebrow }}</small>
             <strong>{{ item.title }}</strong>

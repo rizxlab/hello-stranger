@@ -3,8 +3,15 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import ShortSceneCard from '@/components/shorts/ShortSceneCard.vue'
 import { getBackgroundResource } from '@/config/storyResources'
-import { listConversationExperiences } from '@/scenes/conversations'
+import {
+  listConversationExperiences,
+  listConversationScenarios
+} from '@/scenes/conversations'
 import { getShortSceneSeries, listShortScenes } from '@/scenes/shorts'
+import {
+  imagePreloadService,
+  selectPreferredImageUrl
+} from '@/services/ImagePreloadService'
 
 const route = useRoute()
 const seriesId = computed(() => {
@@ -31,6 +38,17 @@ const allStandalone = computed(() =>
 const isDenseLessonSeries = computed(
   () => series.value?.id === 'dk-conversations'
 )
+
+function preloadExperienceBackground(
+  experienceId: string,
+  fallbackResourceKey: string
+): void {
+  const firstScenario = listConversationScenarios(experienceId)[0]
+  const resourceKey = firstScenario?.background ?? fallbackResourceKey
+  const resource = getBackgroundResource(resourceKey)
+  const url = selectPreferredImageUrl(resource.url, resource.portraitUrl)
+  void imagePreloadService.load(url, { priority: 'low' }).catch(() => undefined)
+}
 </script>
 
 <template>
@@ -59,10 +77,15 @@ const isDenseLessonSeries = computed(
           params: { seriesId: series.id, experienceId: experience.id }
         }"
         class="lesson-card"
+        @pointerenter="preloadExperienceBackground(experience.id, experience.cover)"
+        @focus="preloadExperienceBackground(experience.id, experience.cover)"
+        @touchstart.passive="preloadExperienceBackground(experience.id, experience.cover)"
       >
         <img
           :src="getBackgroundResource(experience.cover).url"
           :alt="experience.kind === 'lesson' ? `${experience.number} ${experience.title}` : experience.title"
+          loading="lazy"
+          decoding="async"
         />
         <span class="lesson-number">
           {{ experience.kind === 'lesson' ? `Lesson ${experience.number}` : '常见会话' }}

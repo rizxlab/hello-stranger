@@ -15,20 +15,21 @@
 
 已完成可扩展的视觉剧情 Demo：
 
-- 独立开屏页面
-- 开屏与首页共享 Hello Stranger 品牌视觉，首页提供剧情入口
+- Hello Stranger 品牌首页与剧情入口
 - 独立 `/play/:storyId/:chapterId` 与 `/play/short/:shortId` 路由共享沉浸式视觉播放器
 - 剧情演绎时隐藏底部导航，场景全屏显示并通过右上角返回章节目录
 - 故事目录 → 章节目录 → 首页演绎的二级导航
 - 高密度短情景目录，可直接进入更短的独立练习
 - 短情景支持栏目化目录；DK英语会话和常见情景会话共用连续对话模式
+- DK英语会话包含 Lesson 1–96，每课目前至少包含一个可体验子情景
+- 短会话支持先写下回答、临时录音、折叠选项和选择反馈
 - 故事元数据和章节 JSON 自动注册
 - Scene、Story、Dialogue、Choice、Reward 五个独立系统
 - 内存 PlayerStore，以及能力和词汇奖励展示
 - 设置页与三击版本号解锁的只读开发者检查页
 - PWA manifest、service worker 和离线预缓存
 
-当前包含 `Hello Stranger` 第一章“起飞之前”；短情景下包含 DK英语会话课程 `15 Talking About Family`，以及常见情景会话中的“确认登机口”和“地铁站问路”。
+当前包含 `Hello Stranger` 第一章“起飞之前”；短情景下包含 DK英语会话 Lesson 1–96，以及常见情景会话中的“确认登机口”和“地铁站问路”。
 
 当前不使用 localStorage。刷新页面后玩家数据重置，也不维护跨版本存档兼容。
 
@@ -68,6 +69,14 @@ pnpm test
 pnpm build
 pnpm preview
 ```
+
+## 正式部署
+
+正式网站：<https://rizxlab.github.io/hello-stranger/>
+
+项目通过 GitHub Actions 和 GitHub Pages 自动部署。正常开发完成后，由维护者使用 Git 或 GitHub Desktop 提交并 Push 到 GitHub；推送到 `main` 分支后，`.github/workflows/main.yml` 会自动执行安装、构建和部署。
+
+本项目不再使用临时预览托管或其他发布方式。日常开发以本地预览为主，Codex 不负责自行提交、Push 或发布。
 
 ## 内容结构
 

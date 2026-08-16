@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { appConfig } from '@/config/app'
+import PlayerResetPanel from '@/components/developer/PlayerResetPanel.vue'
 import {
   listConversationExperiences,
   listConversationScenarios
@@ -9,7 +11,7 @@ import { listShortScenes, listShortSceneSeries } from '@/scenes/shorts'
 import { usePlayerStore } from '@/stores/player'
 
 const player = usePlayerStore()
-const diagnostics = [
+const diagnostics = computed(() => [
   { label: '应用版本', value: appConfig.version },
   { label: '已注册故事', value: listStories().length },
   { label: '已注册章节', value: listAllChapters().length },
@@ -21,7 +23,7 @@ const diagnostics = [
   { label: '当前故事', value: player.progress.storyId ?? '—' },
   { label: '当前章节', value: player.progress.chapterId ?? '—' },
   { label: '当前场景', value: player.progress.sceneId ?? '—' }
-]
+])
 </script>
 
 <template>
@@ -34,7 +36,7 @@ const diagnostics = [
       <RouterLink :to="{ name: 'settings' }">退出</RouterLink>
     </header>
 
-    <p class="developer-note">当前仅提供只读运行信息，后续检查工具会以独立模块加入。</p>
+    <p class="developer-note">当前提供运行信息与本次会话数据操作，后续检查工具会以独立模块加入。</p>
 
     <div class="diagnostic-grid">
       <article v-for="item in diagnostics" :key="item.label">
@@ -47,6 +49,8 @@ const diagnostics = [
       <p class="profile-section-title">本次会话</p>
       <p class="muted">口语 {{ player.english.speaking }} · 词汇 {{ player.vocabulary.length }} · 等级 {{ player.level }}</p>
     </article>
+
+    <PlayerResetPanel />
   </section>
 </template>
 

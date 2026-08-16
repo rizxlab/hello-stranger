@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import ProgressiveSceneBackground from '@/components/media/ProgressiveSceneBackground.vue'
 import CollapsibleChoicePanel from '@/components/conversation/CollapsibleChoicePanel.vue'
 import ConversationIntro from '@/components/conversation/ConversationIntro.vue'
 import ConversationFeedbackModal from '@/components/conversation/ConversationFeedbackModal.vue'
@@ -30,6 +31,14 @@ const series = computed(() => getShortSceneSeries(seriesId.value))
 const background = computed(() =>
   getBackgroundResource(session.currentScenario.value?.background ?? '')
 )
+const nextBackgrounds = computed(() => {
+  const nextScenario = session.scenarios.value[
+    session.currentScenarioIndex.value + 1
+  ]
+  return nextScenario
+    ? [getBackgroundResource(nextScenario.background)]
+    : []
+})
 const scenarioPosition = computed(
   () => `${session.currentScenarioIndex.value + 1} / ${session.scenarios.value.length}`
 )
@@ -128,14 +137,12 @@ watch(
     </div>
 
     <template v-else-if="session.currentScenario.value && session.experience.value">
-      <picture class="background">
-        <source
-          v-if="background.portraitUrl"
-          media="(orientation: portrait)"
-          :srcset="background.portraitUrl"
-        />
-        <img :src="background.url" :alt="session.currentScenario.value.title" />
-      </picture>
+      <ProgressiveSceneBackground
+        class="background"
+        :source="background"
+        :preload-sources="nextBackgrounds"
+        :alt="session.currentScenario.value.title"
+      />
       <div class="shade" aria-hidden="true"></div>
 
       <header class="lesson-header">
@@ -243,12 +250,6 @@ watch(
   inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .shade {

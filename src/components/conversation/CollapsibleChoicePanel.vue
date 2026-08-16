@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, useId } from 'vue'
+import { nextTick, onMounted, ref, useId, watch } from 'vue'
 import ChoicePanel from '@/components/story/ChoicePanel.vue'
 import TemporaryRecorder from '@/components/conversation/TemporaryRecorder.vue'
 
-defineProps<{
+const props = defineProps<{
   prompt: string
   choices: readonly { id: string; text: string }[]
   modelValue: string
@@ -15,9 +15,56 @@ const emit = defineEmits<{
 }>()
 
 const expanded = ref(false)
+const lastInsertedTranscript = ref('')
+const answerTextarea = ref<HTMLTextAreaElement | null>(null)
 const componentId = useId()
 const noteId = `answer-note-${componentId}`
 const optionsId = `conversation-choice-options-${componentId}`
+
+function resizeAnswerTextarea(): void {
+  const textarea = answerTextarea.value
+  if (!textarea) return
+
+  textarea.style.height = 'auto'
+  const maxHeight = Number.parseFloat(getComputedStyle(textarea).maxHeight)
+  const nextHeight = Math.min(
+    textarea.scrollHeight,
+    Number.isFinite(maxHeight) ? maxHeight : textarea.scrollHeight
+  )
+  textarea.style.height = `${nextHeight}px`
+  textarea.style.overflowY = textarea.scrollHeight > nextHeight ? 'auto' : 'hidden'
+}
+
+watch(
+  () => props.modelValue,
+  async () => {
+    await nextTick()
+    resizeAnswerTextarea()
+  }
+)
+
+onMounted(resizeAnswerTextarea)
+
+function updateAnswerManually(value: string): void {
+  lastInsertedTranscript.value = ''
+  emit('update:modelValue', value)
+  resizeAnswerTextarea()
+}
+
+function insertTranscription(transcript: string): void {
+  const currentAnswer = props.modelValue.trim()
+  const previousTranscript = lastInsertedTranscript.value
+  const answerWithoutPrevious =
+    previousTranscript && currentAnswer.endsWith(previousTranscript)
+      ? currentAnswer.slice(0, -previousTranscript.length).trimEnd()
+      : currentAnswer
+  const nextAnswer = answerWithoutPrevious
+    ? `${answerWithoutPrevious} ${transcript}`
+    : transcript
+
+  lastInsertedTranscript.value = transcript
+  emit('update:modelValue', nextAnswer)
+}
 </script>
 
 <template>
@@ -26,14 +73,15 @@ const optionsId = `conversation-choice-options-${componentId}`
       <label :for="noteId">我的回答 <span>可选</span></label>
       <textarea
         :id="noteId"
+        ref="answerTextarea"
         :value="modelValue"
-        rows="2"
+        rows="1"
         maxlength="500"
         placeholder="先写下你会怎么说……"
-        @input="emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
+        @input="updateAnswerManually(($event.target as HTMLTextAreaElement).value)"
       ></textarea>
       <small>这里不会自动校对，展开选项后可以自行对照。</small>
-      <TemporaryRecorder />
+      <TemporaryRecorder @transcribed="insertTranscription" />
     </div>
 
     <button
@@ -89,10 +137,11 @@ const optionsId = `conversation-choice-options-${componentId}`
 
 .answer-note textarea {
   width: 100%;
-  min-height: 3.8rem;
+  min-height: 2.65rem;
   max-height: 8rem;
   padding: 0.7rem 0.8rem;
-  resize: vertical;
+  overflow-y: hidden;
+  resize: none;
   color: #173f3a;
   background: rgb(255 253 248 / 72%);
   border: 1px solid rgb(23 63 58 / 18%);
