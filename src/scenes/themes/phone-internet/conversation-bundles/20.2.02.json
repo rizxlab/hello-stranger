@@ -1,0 +1,772 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "phone-internet",
+  "experiences": [
+    {
+      "id": "phone-internet-20-2-02-a",
+      "seriesId": "phone-internet",
+      "kind": "standalone",
+      "title": "连接公共",
+      "summary": "在“连接公共 Wi-Fi”中练习“正常连接”相关的英语交流。",
+      "cover": "phone-internet-support",
+      "order": 7
+    },
+    {
+      "id": "phone-internet-20-2-02-b",
+      "seriesId": "phone-internet",
+      "kind": "standalone",
+      "title": "连接公共",
+      "summary": "在“连接公共 Wi-Fi”中练习“无法连接”相关的英语交流。",
+      "cover": "phone-internet-support",
+      "order": 8
+    },
+    {
+      "id": "phone-internet-20-2-02-c",
+      "seriesId": "phone-internet",
+      "kind": "standalone",
+      "title": "连接公共",
+      "summary": "在“连接公共 Wi-Fi”中练习“询问密码 / 登录方式”相关的英语交流。",
+      "cover": "phone-internet-support",
+      "order": 9
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "phone-internet-20-2-02-a-scenario-01",
+      "experienceId": "phone-internet-20-2-02-a",
+      "title": "A｜正常连接",
+      "order": 1,
+      "setting": "玩家在咖啡店里想连接公共 Wi-Fi。",
+      "background": "phone-internet-support",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Excuse me. Do you have Wi-Fi here?"
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Yes. The network is called “Corner Cafe Guest.”"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Great. Is there a password?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great. Is there a password?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "Thanks. How do I connect to it?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks. How do I connect to it?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Is the Wi-Fi free for customers?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is the Wi-Fi free for customers?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "Which network should I connect to?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Which network should I connect to?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "How can I join your Wi-Fi?",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Great. Is there a password?",
+                "explanation": "可以，但 connect to 更常见"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "There’s no password. Just connect to the network and accept the terms on the login page."
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "Okay. So a login page should open automatically?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay. So a login page should open automatically?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Got it. Do I need to enter any information?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Got it. Do I need to enter any information?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Okay, let me try.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay, let me try.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Did it work?"
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Yes, I’m connected now. Thanks!",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, I’m connected now. Thanks!",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Yep, it’s working. Thank you.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yep, it’s working. Thank you.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phone-internet-20-2-02-b-scenario-01",
+      "experienceId": "phone-internet-20-2-02-b",
+      "title": "B｜无法连接",
+      "order": 1,
+      "setting": "玩家找到了公共 Wi-Fi，但一直连接失败。",
+      "background": "phone-internet-support",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Excuse me. I’m having trouble connecting to the Wi-Fi."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "What happens when you try?"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "It keeps saying “Unable to connect.”",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It keeps saying “Unable to connect.”",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "I can see the network, but I can’t connect to it.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I can see the network, but I can’t connect to it.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "It connects for a few seconds and then disconnects.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It connects for a few seconds and then disconnects.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "I’ve tried several times, but it still isn’t working.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ve tried several times, but it still isn’t working.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "I can’t connect with the Wi-Fi.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "It keeps saying “Unable to connect.”",
+                "explanation": "connect to the Wi-Fi 更自然"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Have you tried turning Wi-Fi off and back on?"
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "Yes, but that didn’t help.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, but that didn’t help.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Not yet. Let me try that.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Not yet. Let me try that.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Yes. I also tried forgetting the network and reconnecting.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. I also tried forgetting the network and reconnecting.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Try connecting again now."
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "It’s working now. Thanks.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It’s working now. Thanks.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "I’m still getting the same error.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m still getting the same error.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-03",
+              "text": "I’m connected now, but there’s still no internet access.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m connected now, but there’s still no internet access.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phone-internet-20-2-02-c-scenario-01",
+      "experienceId": "phone-internet-20-2-02-c",
+      "title": "C｜询问密码 / 登录方式",
+      "order": 1,
+      "setting": "在“连接公共 Wi-Fi”情景中，你将练习如何用英语处理“询问密码 / 登录方式”。",
+      "background": "phone-internet-support",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Hi. What’s the Wi-Fi password?"
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "It’s printed on the bottom of your receipt."
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Oh, I see it. Thanks.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Oh, I see it. Thanks.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "Is it case-sensitive?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is it case-sensitive?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Do I need to enter my room number or anything else?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to enter my room number or anything else?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "Do I need to sign in after entering the password?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to sign in after entering the password?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "After you connect, a login page should appear."
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "What should I do if the login page doesn’t open?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What should I do if the login page doesn’t open?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Do I need to create an account?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to create an account?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "How long does the Wi-Fi access last?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How long does the Wi-Fi access last?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-04",
+              "text": "Can I connect more than one device?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I connect more than one device?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "You don’t need an account. Just accept the terms and tap “Connect.”"
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Got it. Thanks for your help.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Got it. Thanks for your help.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Okay, I’ll give it a try.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay, I’ll give it a try.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

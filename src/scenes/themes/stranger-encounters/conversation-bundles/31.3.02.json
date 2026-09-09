@@ -1,0 +1,746 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "stranger-encounters",
+  "experiences": [
+    {
+      "id": "stranger-encounters-31-3-02-a",
+      "seriesId": "stranger-encounters",
+      "kind": "standalone",
+      "title": "可疑陌生人",
+      "summary": "在“可疑陌生人”中练习“怀疑诈骗”相关的英语交流。",
+      "cover": "stranger-encounters-city",
+      "order": 23
+    },
+    {
+      "id": "stranger-encounters-31-3-02-b",
+      "seriesId": "stranger-encounters",
+      "kind": "standalone",
+      "title": "可疑陌生人",
+      "summary": "在“可疑陌生人”中练习“拒绝提供信息 / 金钱”相关的英语交流。",
+      "cover": "stranger-encounters-city",
+      "order": 24
+    },
+    {
+      "id": "stranger-encounters-31-3-02-c",
+      "seriesId": "stranger-encounters",
+      "kind": "standalone",
+      "title": "可疑陌生人",
+      "summary": "在“可疑陌生人”中练习“离开并寻求帮助”相关的英语交流。",
+      "cover": "stranger-encounters-city",
+      "order": 25
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "stranger-encounters-31-3-02-a-scenario-01",
+      "experienceId": "stranger-encounters-31-3-02-a",
+      "title": "A｜怀疑诈骗",
+      "order": 1,
+      "setting": "陌生人在公共场所主动接近玩家，声称自己遇到了紧急情况，需要玩家帮忙。",
+      "background": "stranger-encounters-city",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Stranger",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Hey, sorry. My wallet was stolen and I need money for a train ticket. Can you help me?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Sorry, I can’t give you any money.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Sorry, I can’t give you any money.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "I’m sorry to hear that, but I’m not comfortable giving cash to someone I don’t know.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m sorry to hear that, but I’m not comfortable giving cash to someone I don’t know.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "If you’ve lost your wallet, maybe the station staff can help you.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "If you’ve lost your wallet, maybe the station staff can help you.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "I can’t help with money, but I can point you toward the information desk.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I can’t help with money, but I can point you toward the information desk.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "How do I know you’re telling the truth?",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Sorry, I can’t give you any money.",
+                "explanation": "可以表达怀疑，但容易使交流升级"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "I swear it’s true. I just need twenty dollars."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "I’m sorry, but I can’t help you with that.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m sorry, but I can’t help you with that.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "No. I’m not giving you money.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No. I’m not giving you money.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "You should speak to a member of staff.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "You should speak to a member of staff.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "I’m going to leave now.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m going to leave now.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stranger-encounters-31-3-02-b-scenario-01",
+      "experienceId": "stranger-encounters-31-3-02-b",
+      "title": "B｜拒绝提供信息 / 金钱",
+      "order": 1,
+      "setting": "在“可疑陌生人”情景中，你将练习如何用英语处理“拒绝提供信息 / 金钱”。",
+      "background": "stranger-encounters-city",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Stranger",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Okay, then could you transfer me some money? I’ll pay you back. What’s your number?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "No, I don’t give out my personal information to strangers.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No, I don’t give out my personal information to strangers.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "I’m not comfortable sharing my phone number.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m not comfortable sharing my phone number.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "Sorry, I won’t transfer money to someone I don’t know.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Sorry, I won’t transfer money to someone I don’t know.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "I’m not going to share any banking information.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m not going to share any banking information.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "I don’t want to tell you my informations.",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "No, I don’t give out my personal information to strangers.",
+                "explanation": "information 是不可数名词"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Come on, I’m not asking for much."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "I’ve already said no.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ve already said no.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Please stop asking me for money.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Please stop asking me for money.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "My answer isn’t going to change.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "My answer isn’t going to change.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "I’m not discussing this any further.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m not discussing this any further.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Why are you being so suspicious?"
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "I don’t need to explain. I’m leaving now.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I don’t need to explain. I’m leaving now.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "I don’t know you, and I’m not comfortable with this.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I don’t know you, and I’m not comfortable with this.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "Please don’t follow me.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Please don’t follow me.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stranger-encounters-31-3-02-c-scenario-01",
+      "experienceId": "stranger-encounters-31-3-02-c",
+      "title": "C｜离开并寻求帮助",
+      "order": 1,
+      "setting": "陌生人在被拒绝后仍然跟着玩家。玩家走向附近有工作人员的区域。",
+      "background": "stranger-encounters-city",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Excuse me. Could I stay here for a moment? That person has been following me."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Of course. Do you know them?"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "No. They approached me outside and asked me for money.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No. They approached me outside and asked me for money.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "No, I’ve never seen them before.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No, I’ve never seen them before.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "I told them I wasn’t interested, but they kept following me.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I told them I wasn’t interested, but they kept following me.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "They asked for money and personal information, and now I don’t feel safe.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "They asked for money and personal information, and now I don’t feel safe.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Okay. Stay here. Do you want me to call security?"
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "Yes, please.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, please.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Yes. I’d rather not go back outside alone.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. I’d rather not go back outside alone.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Could someone walk with me when I leave?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could someone walk with me when I leave?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-04",
+              "text": "If they keep following me, I’d like to contact the police.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "If they keep following me, I’d like to contact the police.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Sure. Security is on the way."
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Thank you. I’ll wait here.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thank you. I’ll wait here.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Thanks. I really appreciate the help.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks. I really appreciate the help.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

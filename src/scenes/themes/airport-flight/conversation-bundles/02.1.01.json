@@ -1,0 +1,1430 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "airport-flight",
+  "experiences": [
+    {
+      "id": "airport-flight-02-1-01-a",
+      "seriesId": "airport-flight",
+      "kind": "standalone",
+      "title": "查询并购买机票",
+      "summary": "在“查询并购买机票”中练习“正常购票”相关的英语交流。",
+      "cover": "airport-flight-checkin",
+      "order": 1
+    },
+    {
+      "id": "airport-flight-02-1-01-b",
+      "seriesId": "airport-flight",
+      "kind": "standalone",
+      "title": "查询并购买机票",
+      "summary": "在“查询并购买机票”中练习“选择座位”相关的英语交流。",
+      "cover": "airport-flight-checkin",
+      "order": 2
+    },
+    {
+      "id": "airport-flight-02-1-01-c",
+      "seriesId": "airport-flight",
+      "kind": "standalone",
+      "title": "查询并购买机票",
+      "summary": "在“查询并购买机票”中练习“添加托运行李”相关的英语交流。",
+      "cover": "airport-flight-checkin",
+      "order": 3
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "airport-flight-02-1-01-a-scenario-01",
+      "experienceId": "airport-flight-02-1-01-a",
+      "title": "A｜正常购票",
+      "order": 1,
+      "setting": "在“查询并购买机票”情景中，你将练习如何用英语处理“正常购票”。",
+      "background": "airport-flight-checkin",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Airline Agent",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Hello. How can I help you today?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Hi, I’d like to book a flight to London, please.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Hi, I’d like to book a flight to London, please.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "I’m looking for a flight to London.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m looking for a flight to London.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "I’d like to buy a ticket to London.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to buy a ticket to London.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "Could you help me book a flight to London?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you help me book a flight to London?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "I want book a ticket to London.",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "Hi, I’d like to book a flight to London, please.",
+                "explanation": "这个表达存在语法或语境问题。更建议说：“Hi, I’d like to book a flight to London, please.”"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Certainly. When would you like to travel?"
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "I’d like to leave on October 12th.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to leave on October 12th.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "I’m planning to fly on October 12th.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m planning to fly on October 12th.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "I’d like to travel sometime next Friday.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to travel sometime next Friday.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "October 12th, preferably in the morning.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "October 12th, preferably in the morning.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-05",
+              "text": "I want to go in October 12th.",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "I’d like to leave on October 12th.",
+                "explanation": "这个表达存在语法或语境问题。更建议说：“I’d like to leave on October 12th.”"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Would you like a one-way ticket or a round trip?"
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "A round trip, please.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "A round trip, please.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "I’d like a return ticket, please.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like a return ticket, please.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "One way, please.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "One way, please.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-04",
+              "text": "I’d like to come back on October 18th.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to come back on October 18th.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "There are two flights available that morning: one at 8:30 and another at 11:15."
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "What time does the first flight arrive?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What time does the first flight arrive?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "How long is the flight?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How long is the flight?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-03",
+              "text": "Is either flight nonstop?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is either flight nonstop?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-04",
+              "text": "Which one is cheaper?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Which one is cheaper?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-05",
+              "text": "Which flight is more cheap?",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "What time does the first flight arrive?",
+                "explanation": "这个表达存在语法或语境问题。更建议说：“What time does the first flight arrive?”"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-09",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "The 8:30 flight is nonstop and arrives at 2:10 p.m. local time."
+        },
+        {
+          "id": "turn-10",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-10-choice-01",
+              "text": "How much is that flight?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How much is that flight?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-10-choice-02",
+              "text": "What’s the total fare for the round trip?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What’s the total fare for the round trip?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-10-choice-03",
+              "text": "Does that price include taxes?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Does that price include taxes?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-10-choice-04",
+              "text": "Are there any additional fees?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Are there any additional fees?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-11",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "The total is $620 including taxes."
+        },
+        {
+          "id": "turn-12",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-12-choice-01",
+              "text": "That sounds good. I’ll take it.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "That sounds good. I’ll take it.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-12-choice-02",
+              "text": "Great. I’d like to book that flight.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great. I’d like to book that flight.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-12-choice-03",
+              "text": "Okay, that works for me.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay, that works for me.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-12-choice-04",
+              "text": "I’ll choose the 8:30 flight.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ll choose the 8:30 flight.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-13",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Certainly. May I have the name exactly as it appears on your passport?"
+        },
+        {
+          "id": "turn-14",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-14-choice-01",
+              "text": "Yes. It’s Alex Chen.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. It’s Alex Chen.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-14-choice-02",
+              "text": "The name on my passport is Alex Chen.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "The name on my passport is Alex Chen.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-14-choice-03",
+              "text": "Sure. Let me check my passport.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Sure. Let me check my passport.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "airport-flight-02-1-01-b-scenario-01",
+      "experienceId": "airport-flight-02-1-01-b",
+      "title": "B｜选择座位",
+      "order": 1,
+      "setting": "在“查询并购买机票”情景中，你将练习如何用英语处理“选择座位”。",
+      "background": "airport-flight-checkin",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Airline Agent",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Would you like to choose your seat now?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Yes. Do you have any window seats available?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. Do you have any window seats available?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "I’d prefer a window seat, if possible.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d prefer a window seat, if possible.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "Could I have an aisle seat?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I have an aisle seat?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "What seats are still available?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What seats are still available?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "Can I sit near the window?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I sit near the window?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "We have window seats in rows 18 and 24."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Is row 18 closer to the front of the plane?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is row 18 closer to the front of the plane?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Is either seat near the wing?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is either seat near the wing?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "Do either of those seats have extra legroom?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do either of those seats have extra legroom?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "Could I see a seat map?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I see a seat map?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Row 18 is just behind the wing. Row 24 is farther back."
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "I’ll take the window seat in row 18.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ll take the window seat in row 18.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "Row 18 sounds better.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Row 18 sounds better.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "Could you assign me seat 18A?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you assign me seat 18A?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-04",
+              "text": "I’d prefer the one closer to the front.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d prefer the one closer to the front.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Seat 18A is available."
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "Great. Is there an extra charge for that seat?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great. Is there an extra charge for that seat?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "Is seat selection included in the fare?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is seat selection included in the fare?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-03",
+              "text": "Do I need to pay extra to choose this seat?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to pay extra to choose this seat?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-04",
+              "text": "How much does this seat cost?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How much does this seat cost?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-09",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Standard seat selection is included."
+        },
+        {
+          "id": "turn-10",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-10-choice-01",
+              "text": "Perfect. I’ll take 18A.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Perfect. I’ll take 18A.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-10-choice-02",
+              "text": "Great, please assign me that seat.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great, please assign me that seat.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "airport-flight-02-1-01-c-scenario-01",
+      "experienceId": "airport-flight-02-1-01-c",
+      "title": "C｜添加托运行李",
+      "order": 1,
+      "setting": "在“查询并购买机票”情景中，你将练习如何用英语处理“添加托运行李”。",
+      "background": "airport-flight-checkin",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Airline Agent",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Would you like to add any checked baggage?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Yes, I’d like to check one bag.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, I’d like to check one bag.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "I’d like to add one checked bag, please.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to add one checked bag, please.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "I’ll have one suitcase to check in.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ll have one suitcase to check in.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "I need to check a suitcase.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I need to check a suitcase.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "I want to consign one luggage.",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "Yes, I’d like to check one bag.",
+                "explanation": "这个表达存在语法或语境问题。更建议说：“Yes, I’d like to check one bag.”"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "One checked bag up to 23 kilograms costs $35."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Is that $35 each way?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is that $35 each way?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Is the fee for the whole round trip?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is the fee for the whole round trip?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "What’s the weight limit for each bag?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What’s the weight limit for each bag?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "What happens if my bag is over 23 kilos?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What happens if my bag is over 23 kilos?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "The fee is each way. Bags over 23 kilograms may incur an overweight charge."
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "Could I add one checked bag for both flights?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I add one checked bag for both flights?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "Then I’d like to add one bag each way.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Then I’d like to add one bag each way.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "How much will that be in total?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How much will that be in total?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-04",
+              "text": "Can I pay for the bag now?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I pay for the bag now?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "That will be $70 total."
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "That’s fine. Please add it to my booking.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "That’s fine. Please add it to my booking.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "Okay, I’ll add one checked bag.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay, I’ll add one checked bag.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-03",
+              "text": "Great. Can I pay for everything together?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great. Can I pay for everything together?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

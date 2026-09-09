@@ -1,0 +1,905 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "public-services",
+  "experiences": [
+    {
+      "id": "public-services-25-1-04-a",
+      "seriesId": "public-services",
+      "kind": "standalone",
+      "title": "收到官方信件",
+      "summary": "在“收到官方信件”中练习“询问信件内容”相关的英语交流。",
+      "cover": "public-services-office",
+      "order": 10
+    },
+    {
+      "id": "public-services-25-1-04-b",
+      "seriesId": "public-services",
+      "kind": "standalone",
+      "title": "收到官方信件",
+      "summary": "在“收到官方信件”中练习“不知道下一步怎么办”相关的英语交流。",
+      "cover": "public-services-office",
+      "order": 11
+    },
+    {
+      "id": "public-services-25-1-04-c",
+      "seriesId": "public-services",
+      "kind": "standalone",
+      "title": "收到官方信件",
+      "summary": "在“收到官方信件”中练习“联系相关部门”相关的英语交流。",
+      "cover": "public-services-office",
+      "order": 12
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "public-services-25-1-04-a-scenario-01",
+      "experienceId": "public-services-25-1-04-a",
+      "title": "A｜询问信件内容",
+      "order": 1,
+      "setting": "玩家收到一封政府部门寄来的信，但没有完全看懂内容，于是带着信去咨询。",
+      "background": "public-services-office",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Hi. I received this letter, but I’m not sure what it means."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Let me take a look."
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Could you explain what this letter is asking me to do?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you explain what this letter is asking me to do?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "I’m having trouble understanding this part.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m having trouble understanding this part.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Does this mean there’s a problem with my application?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Does this mean there’s a problem with my application?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "Could you tell me what this section means?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you tell me what this section means?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "I don’t understand what this letter wants from me.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Could you explain what this letter is asking me to do?",
+                "explanation": "能理解，稍口语"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "It says we need some additional information before we can continue processing your application."
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "What additional information do you need?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What additional information do you need?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Which documents do I need to provide?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Which documents do I need to provide?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Does the letter say when I need to submit them by?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Does the letter say when I need to submit them by?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-04",
+              "text": "Does this mean my application has been rejected?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Does this mean my application has been rejected?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "No. It hasn’t been rejected. We just need one more document."
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Okay, that’s good to know.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay, that’s good to know.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "I see. Which document am I missing?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I see. Which document am I missing?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "public-services-25-1-04-b-scenario-01",
+      "experienceId": "public-services-25-1-04-b",
+      "title": "B｜不知道下一步怎么办",
+      "order": 1,
+      "setting": "在“收到官方信件”情景中，你将练习如何用英语处理“不知道下一步怎么办”。",
+      "background": "public-services-office",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "I received this notice yesterday, but I’m not sure what I’m supposed to do next."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Have you read the instructions on the second page?"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Yes, but I’m still not sure what action I need to take.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, but I’m still not sure what action I need to take.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "Do I need to respond to this letter?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to respond to this letter?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Do I need to come here in person?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to come here in person?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "Can I deal with this online?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I deal with this online?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "What should I do after receiving this?",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Yes, but I’m still not sure what action I need to take.",
+                "explanation": "正确，但稍泛"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "You need to complete this form and return it within 30 days."
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "Where do I send the completed form?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Where do I send the completed form?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Can I submit it online instead?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I submit it online instead?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Do I need to include any supporting documents?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to include any supporting documents?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-04",
+              "text": "What happens if I miss the deadline?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "What happens if I miss the deadline?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "You can either mail it to the address on the letter or submit it online."
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Okay. I’ll submit it online.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay. I’ll submit it online.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Great. Do I need to keep a copy for my records?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great. Do I need to keep a copy for my records?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-03",
+              "text": "Will I receive confirmation once you’ve received it?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Will I receive confirmation once you’ve received it?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "public-services-25-1-04-c-scenario-01",
+      "experienceId": "public-services-25-1-04-c",
+      "title": "C｜联系相关部门",
+      "order": 1,
+      "setting": "信件上要求玩家联系某个部门，但玩家不知道具体应该找谁。",
+      "background": "public-services-office",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Hi. I’m calling about a letter I received from your department."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Do you have the letter with you?"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Yes. It says I need to contact your office.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. It says I need to contact your office.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "Yes. There’s a reference number on the letter.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. There’s a reference number on the letter.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Yes. I’m calling because I need some clarification about the notice.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. I’m calling because I need some clarification about the notice.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "I received a letter asking me to contact this department.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I received a letter asking me to contact this department.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "Your department sent me a paper and told me to call.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Yes. It says I need to contact your office.",
+                "explanation": "能理解，但不够自然"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Could you give me the reference number?"
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "Sure. It’s R-583204.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Sure. It’s R-583204.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Yes. Let me read it out to you.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. Let me read it out to you.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Is that the number in the top right corner?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is that the number in the top right corner?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Yes. I can see your case here. What would you like to know?"
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "I’d like to know why I received this notice.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to know why I received this notice.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Could you tell me what I need to do next?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you tell me what I need to do next?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-03",
+              "text": "Is there anything I need to submit?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is there anything I need to submit?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-04",
+              "text": "Is there a deadline I need to be aware of?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is there a deadline I need to be aware of?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-05",
+              "text": "Could you connect me with the person handling my case?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you connect me with the person handling my case?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-08",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "I’ll transfer you to the department handling your case."
+        },
+        {
+          "id": "turn-09",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-09-choice-01",
+              "text": "Great. Thank you.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great. Thank you.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-09-choice-02",
+              "text": "Thanks. I appreciate your help.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks. I appreciate your help.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

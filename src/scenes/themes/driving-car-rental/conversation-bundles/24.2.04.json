@@ -1,0 +1,870 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "driving-car-rental",
+  "experiences": [
+    {
+      "id": "driving-car-rental-24-2-04-a",
+      "seriesId": "driving-car-rental",
+      "kind": "standalone",
+      "title": "轻微交通事故",
+      "summary": "在“轻微交通事故”中练习“确认双方情况”相关的英语交流。",
+      "cover": "driving-car-rental-road",
+      "order": 16
+    },
+    {
+      "id": "driving-car-rental-24-2-04-b",
+      "seriesId": "driving-car-rental",
+      "kind": "standalone",
+      "title": "轻微交通事故",
+      "summary": "在“轻微交通事故”中练习“交换信息”相关的英语交流。",
+      "cover": "driving-car-rental-road",
+      "order": 17
+    },
+    {
+      "id": "driving-car-rental-24-2-04-c",
+      "seriesId": "driving-car-rental",
+      "kind": "standalone",
+      "title": "轻微交通事故",
+      "summary": "在“轻微交通事故”中练习“联系租车公司 / 警方”相关的英语交流。",
+      "cover": "driving-car-rental-road",
+      "order": 18
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "driving-car-rental-24-2-04-a-scenario-01",
+      "experienceId": "driving-car-rental-24-2-04-a",
+      "title": "A｜确认双方情况",
+      "order": 1,
+      "setting": "发生轻微碰撞后，双方把车停在安全位置。",
+      "background": "driving-car-rental-road",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Other Driver",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Are you okay?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Yes, I’m okay. Are you all right?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, I’m okay. Are you all right?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "I’m fine. Is anyone in your car hurt?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m fine. Is anyone in your car hurt?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "I think I’m okay, just a little shaken up.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I think I’m okay, just a little shaken up.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "My neck hurts a little. I think I should get it checked.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "My neck hurts a little. I think I should get it checked.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "I’m no problem. How about you?",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "Yes, I’m okay. Are you all right?",
+                "explanation": "这个表达存在语法或语境问题。更建议说：“Yes, I’m okay. Are you all right?”"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "I’m okay. Nobody seems to be hurt."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "That’s good. Let’s make sure everyone is okay first.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "That’s good. Let’s make sure everyone is okay first.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Okay. Should we move the cars somewhere safer?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay. Should we move the cars somewhere safer?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "The damage doesn’t look too serious, but we should take some photos.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "The damage doesn’t look too serious, but we should take some photos.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Yeah, let’s take some pictures before we leave."
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "I’ll take photos of both cars and the damage.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ll take photos of both cars and the damage.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "I’ll also take a picture of where the accident happened.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ll also take a picture of where the accident happened.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "driving-car-rental-24-2-04-b-scenario-01",
+      "experienceId": "driving-car-rental-24-2-04-b",
+      "title": "B｜交换信息",
+      "order": 1,
+      "setting": "在“轻微交通事故”情景中，你将练习如何用英语处理“交换信息”。",
+      "background": "driving-car-rental-road",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Other Driver",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "We should exchange information."
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Sure. Can I have your name and phone number?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Sure. Can I have your name and phone number?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "Could I see your driver’s license?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I see your driver’s license?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "Can we exchange insurance information?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can we exchange insurance information?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "Could I take a photo of your insurance details?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I take a photo of your insurance details?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "Give me your information.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Sure. Can I have your name and phone number?",
+                "explanation": "语法没错，但比较生硬"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Of course. Here’s my insurance information."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Thanks. Here’s mine.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks. Here’s mine.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Let me give you my phone number as well.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Let me give you my phone number as well.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "Could I also get your license plate number?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I also get your license plate number?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Sure."
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "I’ll take a photo so I don’t write it down incorrectly.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ll take a photo so I don’t write it down incorrectly.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "Thanks. I think we have everything we need.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks. I think we have everything we need.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "driving-car-rental-24-2-04-c-scenario-01",
+      "experienceId": "driving-car-rental-24-2-04-c",
+      "title": "C｜联系租车公司 / 警方",
+      "order": 1,
+      "setting": "因为驾驶的是租来的车，玩家需要确认接下来如何处理。",
+      "background": "driving-car-rental-road",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Police",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "How can I help you?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "I’ve been involved in a minor accident with the rental car.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ve been involved in a minor accident with the rental car.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "Someone hit the rental car, and there’s some damage.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Someone hit the rental car, and there’s some damage.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "I had a minor collision. No one appears to be injured.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I had a minor collision. No one appears to be injured.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "I’ve had an accident. What do I need to do?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ve had an accident. What do I need to do?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "I made a car accident.",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "I’ve been involved in a minor accident with the rental car.",
+                "explanation": "had/was involved in an accident"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Have you exchanged information with the other driver?"
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Yes. I have their contact and insurance information.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. I have their contact and insurance information.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Yes. I’ve also taken photos of the damage.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes. I’ve also taken photos of the damage.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "Not yet. What information should I get from them?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Not yet. What information should I get from them?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "Do I need to file a police report?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to file a police report?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Please follow the local requirements and complete our accident report as well."
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "Where can I find the accident report form?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Where can I find the accident report form?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "Do you need me to send you the photos?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do you need me to send you the photos?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "Can I still drive the car if the damage is minor?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I still drive the car if the damage is minor?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-04",
+              "text": "Should I bring the car back to the rental location?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Should I bring the car back to the rental location?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Is anyone injured?"
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "No, everyone seems to be okay.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No, everyone seems to be okay.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "No, it’s a minor accident and both cars are still drivable.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No, it’s a minor accident and both cars are still drivable.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-03",
+              "text": "Someone is hurt and needs medical attention.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Someone is hurt and needs medical attention.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-04",
+              "text": "I’m not sure. One person is complaining of neck pain.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m not sure. One person is complaining of neck pain.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

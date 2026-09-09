@@ -1,0 +1,922 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "phone-internet",
+  "experiences": [
+    {
+      "id": "phone-internet-20-3-02-a",
+      "seriesId": "phone-internet",
+      "kind": "standalone",
+      "title": "手机丢失",
+      "summary": "在“手机丢失”中练习“借别人的手机”相关的英语交流。",
+      "cover": "phone-internet-support",
+      "order": 13
+    },
+    {
+      "id": "phone-internet-20-3-02-b",
+      "seriesId": "phone-internet",
+      "kind": "standalone",
+      "title": "手机丢失",
+      "summary": "在“手机丢失”中练习“联系工作人员”相关的英语交流。",
+      "cover": "phone-internet-support",
+      "order": 14
+    },
+    {
+      "id": "phone-internet-20-3-02-c",
+      "seriesId": "phone-internet",
+      "kind": "standalone",
+      "title": "手机丢失",
+      "summary": "在“手机丢失”中练习“联系运营商”相关的英语交流。",
+      "cover": "phone-internet-support",
+      "order": 15
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "phone-internet-20-3-02-a-scenario-01",
+      "experienceId": "phone-internet-20-3-02-a",
+      "title": "A｜借别人的手机",
+      "order": 1,
+      "setting": "玩家发现自己的手机不见了，想先打电话确认是否掉在附近。",
+      "background": "phone-internet-support",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Stranger",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Excuse me. I think I’ve lost my phone. Could I borrow yours for a moment?"
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Sure. Do you want to call it?"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Yes, please. I want to see if it’s nearby.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, please. I want to see if it’s nearby.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "Yeah. Could I call my number from your phone?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yeah. Could I call my number from your phone?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Thanks. I just need to make one quick call.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks. I just need to make one quick call.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "I’d like to see if someone answers it.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to see if someone answers it.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "Can you borrow your phone to me?",
+              "feedback": {
+                "naturalness": 1,
+                "assessment": "当前表达不够合适",
+                "naturalExpression": "Yes, please. I want to see if it’s nearby.",
+                "explanation": "这个表达存在语法或语境问题。更建议说：“Yes, please. I want to see if it’s nearby.”"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Sure. Here you go."
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "No answer?"
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "No. It just keeps ringing.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No. It just keeps ringing.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "No one’s picking up.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No one’s picking up.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "It seems to be turned off now.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It seems to be turned off now.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-04",
+              "text": "No. I think I’ll need to report it missing.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "No. I think I’ll need to report it missing.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "I’m sorry. I hope you find it."
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "Thanks for letting me use your phone.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thanks for letting me use your phone.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "Thank you. I really appreciate your help.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Thank you. I really appreciate your help.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phone-internet-20-3-02-b-scenario-01",
+      "experienceId": "phone-internet-20-3-02-b",
+      "title": "B｜联系工作人员",
+      "order": 1,
+      "setting": "玩家怀疑手机落在商场或车站里，于是询问工作人员。",
+      "background": "phone-internet-support",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "player",
+          "text": "Hi. I think I may have lost my phone somewhere here."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Do you know where you last had it?"
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "I last remember using it near the entrance.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I last remember using it near the entrance.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "I think I left it at one of the tables upstairs.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I think I left it at one of the tables upstairs.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "I had it about half an hour ago, but I’m not sure where I lost it.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I had it about half an hour ago, but I’m not sure where I lost it.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-04",
+              "text": "I may have dropped it somewhere in the building.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I may have dropped it somewhere in the building.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-05",
+              "text": "I forgot my phone somewhere here.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "I last remember using it near the entrance.",
+                "explanation": "lost/left 更符合语境"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Can you describe it?"
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "It’s a black iPhone with a clear case.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It’s a black iPhone with a clear case.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "It’s a white phone in a blue case.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It’s a white phone in a blue case.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "There’s a small sticker on the back of the case.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "There’s a small sticker on the back of the case.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-04",
+              "text": "I can give you the phone number if that helps.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I can give you the phone number if that helps.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Nothing matching that description has been turned in yet."
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Is there a lost and found I can check?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is there a lost and found I can check?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Could I leave my contact information in case someone turns it in?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could I leave my contact information in case someone turns it in?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-03",
+              "text": "Who should I contact if it isn’t found today?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Who should I contact if it isn’t found today?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-04",
+              "text": "Could you let me know if someone hands it in later?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you let me know if someone hands it in later?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phone-internet-20-3-02-c-scenario-01",
+      "experienceId": "phone-internet-20-3-02-c",
+      "title": "C｜联系运营商",
+      "order": 1,
+      "setting": "确认手机丢失后，玩家联系手机运营商。",
+      "background": "phone-internet-support",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Customer Service",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "How can I help you?"
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "I’ve lost my phone, and I’d like to secure my account.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ve lost my phone, and I’d like to secure my account.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "My phone is missing. Can you block my SIM card?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "My phone is missing. Can you block my SIM card?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "I think my phone may have been stolen. What should I do about my SIM?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I think my phone may have been stolen. What should I do about my SIM?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "I’d like to stop anyone from using my phone number.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’d like to stop anyone from using my phone number.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "I lost my phone. Please close my number.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "I’ve lost my phone, and I’d like to secure my account.",
+                "explanation": "suspend/block the SIM 更准确"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "I can suspend the SIM card so it can’t be used."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Yes, please suspend it.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Yes, please suspend it.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Will that stop calls, texts, and mobile data?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Will that stop calls, texts, and mobile data?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "Can I keep the same phone number when I get a new SIM?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I keep the same phone number when I get a new SIM?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-04",
+              "text": "Can I reactivate it if I find my phone?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I reactivate it if I find my phone?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "We can issue a replacement SIM and keep your current number."
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "How can I get a replacement SIM?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How can I get a replacement SIM?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "Can I pick one up at a store?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Can I pick one up at a store?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "Do I need to bring identification?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to bring identification?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-04",
+              "text": "How long will it take before the new SIM works?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How long will it take before the new SIM works?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "You’ll need to verify your identity first, and then we can arrange the replacement."
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "Okay. What information do you need from me?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay. What information do you need from me?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "Sure. I’m ready to verify my identity.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Sure. I’m ready to verify my identity.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

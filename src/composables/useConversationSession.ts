@@ -97,7 +97,6 @@ export function useConversationSession() {
     loadExperience,
     clear: () => run(() => sequence.clear()),
     beginScenario: () => run(() => sequence.beginScenario()),
-    advanceConversation: () => run(() => sequence.advanceConversation()),
     selectChoice,
     returnToChoice: () => run(() => sequence.returnToChoice()),
     continueAfterFeedback,

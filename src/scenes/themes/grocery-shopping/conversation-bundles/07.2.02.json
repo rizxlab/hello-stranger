@@ -1,0 +1,1019 @@
+{
+  "$schema": "../../../conversations/conversation-content-bundle.schema.json",
+  "seriesId": "grocery-shopping",
+  "experiences": [
+    {
+      "id": "grocery-shopping-07-2-02-a",
+      "seriesId": "grocery-shopping",
+      "kind": "standalone",
+      "title": "自助结账",
+      "summary": "在“自助结账”中练习“正常扫码”相关的英语交流。",
+      "cover": "grocery-shopping-store",
+      "order": 10
+    },
+    {
+      "id": "grocery-shopping-07-2-02-b",
+      "seriesId": "grocery-shopping",
+      "kind": "standalone",
+      "title": "自助结账",
+      "summary": "在“自助结账”中练习“不知道如何操作”相关的英语交流。",
+      "cover": "grocery-shopping-store",
+      "order": 11
+    },
+    {
+      "id": "grocery-shopping-07-2-02-c",
+      "seriesId": "grocery-shopping",
+      "kind": "standalone",
+      "title": "自助结账",
+      "summary": "在“自助结账”中练习“条形码无法扫描”相关的英语交流。",
+      "cover": "grocery-shopping-store",
+      "order": 12
+    },
+    {
+      "id": "grocery-shopping-07-2-02-d",
+      "seriesId": "grocery-shopping",
+      "kind": "standalone",
+      "title": "自助结账",
+      "summary": "在“自助结账”中练习“机器报错”相关的英语交流。",
+      "cover": "grocery-shopping-store",
+      "order": 13
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "grocery-shopping-07-2-02-a-scenario-01",
+      "experienceId": "grocery-shopping-07-2-02-a",
+      "title": "A｜正常扫码",
+      "order": 1,
+      "setting": "玩家来到自助结账机。",
+      "background": "grocery-shopping-store",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "屏幕",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Scan your first item."
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Milk — $3.20. Place item in bagging area."
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Have you scanned all your items?"
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "你已经扫描完所有商品，会选择什么？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Yes",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "Yes",
+                "explanation": "Yes 表示所有商品都已经扫描，可以继续结账。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "No",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "No",
+                "explanation": "No 表示还有商品没有扫描，机器会返回扫码步骤。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Do you have any bags?"
+        },
+        {
+          "id": "turn-06",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "根据你的需要选择购物袋数量。",
+          "choices": [
+            {
+              "id": "turn-06-choice-01",
+              "text": "No bags",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "No bags",
+                "explanation": "不需要购物袋时选择 No bags。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-02",
+              "text": "One bag",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "One bag",
+                "explanation": "需要一个购物袋时选择 One bag。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "id": "turn-06-choice-03",
+              "text": "Two bags",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "Two bags",
+                "explanation": "需要两个购物袋时选择 Two bags。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-07",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Choose payment method."
+        },
+        {
+          "id": "turn-08",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "选择一种付款方式。",
+          "choices": [
+            {
+              "id": "turn-08-choice-01",
+              "text": "Card",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "Card",
+                "explanation": "Card 表示使用银行卡付款。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-02",
+              "text": "Mobile Payment",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "Mobile Payment",
+                "explanation": "Mobile Payment 表示使用手机支付。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "id": "turn-08-choice-03",
+              "text": "Cash",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "Cash",
+                "explanation": "只有支持现金的自助结账机才会显示 Cash。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-09",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Would you like a receipt?"
+        },
+        {
+          "id": "turn-10",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "你是否需要纸质小票？",
+          "choices": [
+            {
+              "id": "turn-10-choice-01",
+              "text": "Print receipt",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "Print receipt",
+                "explanation": "Print receipt 表示打印纸质小票。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "id": "turn-10-choice-02",
+              "text": "No receipt",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "选择符合当前操作",
+                "naturalExpression": "No receipt",
+                "explanation": "No receipt 表示不打印小票。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "reading",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-11",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Thank you for shopping with us.",
+          "endScenario": true
+        }
+      ]
+    },
+    {
+      "id": "grocery-shopping-07-2-02-b-scenario-01",
+      "experienceId": "grocery-shopping-07-2-02-b",
+      "title": "B｜不知道如何操作",
+      "order": 1,
+      "setting": "玩家不知道散装苹果该怎么扫，于是叫工作人员。",
+      "background": "grocery-shopping-store",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-01-choice-01",
+              "text": "Excuse me, could you help me with this?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Excuse me, could you help me with this?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-02",
+              "text": "I’m not sure how to scan these apples.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m not sure how to scan these apples.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-03",
+              "text": "How do I pay for fruit that doesn’t have a barcode?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How do I pay for fruit that doesn’t have a barcode?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-04",
+              "text": "Could you show me what to do with these?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you show me what to do with these?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-05",
+              "text": "These apples can’t scan. What do I do?",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Excuse me, could you help me with this?",
+                "explanation": "能懂，但前面更自然"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Sure. Tap “Fruit and Vegetables” on the screen."
+        },
+        {
+          "id": "turn-03",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-03-choice-01",
+              "text": "Do I need to weigh them first?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I need to weigh them first?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-02",
+              "text": "How do I find the right type of apple?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "How do I find the right type of apple?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-03-choice-03",
+              "text": "Do I search for the item here?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Do I search for the item here?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-04",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Yes. Put them on the scale, then select “Gala Apples.”"
+        },
+        {
+          "id": "turn-05",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-05-choice-01",
+              "text": "Got it. Like this?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Got it. Like this?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-02",
+              "text": "Is this the right option?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Is this the right option?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-05-choice-03",
+              "text": "Okay. And then I just add it to the order?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay. And then I just add it to the order?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Exactly.",
+          "endScenario": true
+        }
+      ]
+    },
+    {
+      "id": "grocery-shopping-07-2-02-c-scenario-01",
+      "experienceId": "grocery-shopping-07-2-02-c",
+      "title": "C｜条形码无法扫描",
+      "order": 1,
+      "setting": "玩家拿起一盒食品连续扫了几次，没有反应。",
+      "background": "grocery-shopping-store",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-01-choice-01",
+              "text": "Excuse me, this barcode won’t scan.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Excuse me, this barcode won’t scan.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-02",
+              "text": "I can’t get this item to scan.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I can’t get this item to scan.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-03",
+              "text": "I’ve tried a few times, but the barcode isn’t scanning.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’ve tried a few times, but the barcode isn’t scanning.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-04",
+              "text": "Could you help me scan this item?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Could you help me scan this item?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-01-choice-05",
+              "text": "The machine can’t read this.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Excuse me, this barcode won’t scan.",
+                "explanation": "也可以，但没有前面的具体"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-02",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Let me try."
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "The barcode looks damaged. I’ll enter the item manually."
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "Okay, thanks.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Okay, thanks.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "Great, thank you.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great, thank you.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "Do you need the product number?",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Okay, thanks.",
+                "explanation": "可以问，但工作人员正在处理"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "No, I’ve got it."
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "player",
+          "text": "The price on the screen is different from the shelf price.",
+          "endScenario": true
+        }
+      ]
+    },
+    {
+      "id": "grocery-shopping-07-2-02-d-scenario-01",
+      "experienceId": "grocery-shopping-07-2-02-d",
+      "title": "D｜机器报错",
+      "order": 1,
+      "setting": "玩家扫描商品后，机器突然提示：",
+      "background": "grocery-shopping-store",
+      "participants": [
+        {
+          "id": "player",
+          "name": "你",
+          "role": "player"
+        },
+        {
+          "id": "partner",
+          "name": "Staff",
+          "role": "partner"
+        }
+      ],
+      "turns": [
+        {
+          "id": "turn-01",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "Unexpected item in bagging area. Please wait for assistance."
+        },
+        {
+          "id": "turn-02",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-02-choice-01",
+              "text": "Excuse me, the machine says I need assistance.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Excuse me, the machine says I need assistance.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-02",
+              "text": "Something went wrong with the machine. Could you help me?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Something went wrong with the machine. Could you help me?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-03",
+              "text": "I got an error message after I put this in the bagging area.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I got an error message after I put this in the bagging area.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-04",
+              "text": "I’m not sure what this message means.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I’m not sure what this message means.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-02-choice-05",
+              "text": "The machine is broken.",
+              "feedback": {
+                "naturalness": 3,
+                "assessment": "可以理解，但还可以更自然",
+                "naturalExpression": "Excuse me, the machine says I need assistance.",
+                "explanation": "还不能确定坏了"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-03",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "What happened?"
+        },
+        {
+          "id": "turn-04",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-04-choice-01",
+              "text": "I scanned this, then put it in the bagging area.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I scanned this, then put it in the bagging area.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-02",
+              "text": "It says there’s an unexpected item in the bagging area.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "It says there’s an unexpected item in the bagging area.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-04-choice-03",
+              "text": "I don’t think I did anything differently. It just stopped.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "I don’t think I did anything differently. It just stopped.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "turn-05",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "No problem. Let me clear the message."
+        },
+        {
+          "id": "turn-06",
+          "type": "line",
+          "speakerId": "partner",
+          "text": "There you go. You can continue scanning."
+        },
+        {
+          "id": "turn-07",
+          "type": "choice",
+          "speakerId": "player",
+          "prompt": "在当前情景下，你会怎么回应？",
+          "choices": [
+            {
+              "id": "turn-07-choice-01",
+              "text": "Great, thanks.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Great, thanks.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-02",
+              "text": "Perfect. Thank you.",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "Perfect. Thank you.",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "id": "turn-07-choice-03",
+              "text": "So I can just keep going now?",
+              "feedback": {
+                "naturalness": 5,
+                "assessment": "自然、符合当前情景",
+                "naturalExpression": "So I can just keep going now?",
+                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+              },
+              "rewards": [
+                {
+                  "type": "stat",
+                  "stat": "speaking",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

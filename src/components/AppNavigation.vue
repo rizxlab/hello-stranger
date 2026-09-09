@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { navigationItems } from '@/config/navigation'
+
+const route = useRoute()
+const activeNavigation = computed(() =>
+  typeof route.meta.navigation === 'string'
+    ? route.meta.navigation
+    : route.name
+)
 </script>
 
 <template>
@@ -15,6 +24,9 @@ import { navigationItems } from '@/config/navigation'
       :key="item.routeName"
       :to="{ name: item.routeName }"
       class="navigation-link"
+      :class="{
+        'navigation-link--active': activeNavigation === item.routeName
+      }"
     >
       <span class="navigation-icon" aria-hidden="true">{{ item.icon }}</span>
       <span>{{ item.label }}</span>

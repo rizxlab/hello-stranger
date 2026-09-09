@@ -75,7 +75,16 @@ export interface ConversationScenarioDefinition {
   title: string
   order: number
   setting: string
+  learningGoals?: string[]
   background: string
   participants: ConversationParticipant[]
   turns: ConversationTurn[]
+}
+
+/** 按三级主题聚合的内容包；加载后仍注册为标准 Experience + Scenario。 */
+export interface ConversationContentBundleDefinition {
+  $schema?: string
+  seriesId: string
+  experiences: ConversationExperienceDefinition[]
+  scenarios: ConversationScenarioDefinition[]
 }

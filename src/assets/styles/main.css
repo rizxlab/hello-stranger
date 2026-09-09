@@ -9,6 +9,12 @@
   text-rendering: optimizeLegibility;
 }
 
+html,
+body,
+#app {
+  touch-action: pan-x pan-y;
+}
+
 * {
   box-sizing: border-box;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
@@ -165,7 +171,8 @@ h1 {
   text-decoration: none;
 }
 
-.navigation-link.router-link-active {
+.navigation-link.router-link-active,
+.navigation-link--active {
   color: #173f3a;
   background: #f4efe6;
 }

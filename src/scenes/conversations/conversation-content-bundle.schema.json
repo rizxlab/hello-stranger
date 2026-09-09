@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hello-stranger.local/schemas/conversation-content-bundle.schema.json",
+  "title": "Conversation Content Bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["seriesId", "experiences", "scenarios"],
+  "properties": {
+    "$schema": { "type": "string", "minLength": 1 },
+    "seriesId": { "type": "string", "minLength": 1 },
+    "experiences": {
+      "type": "array",
+      "items": {
+        "$ref": "./conversation-experience.schema.json"
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "$ref": "./conversation-scenario.schema.json"
+      }
+    }
+  }
+}

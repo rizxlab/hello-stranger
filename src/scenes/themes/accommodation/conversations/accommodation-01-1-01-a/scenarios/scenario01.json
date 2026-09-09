@@ -1,0 +1,361 @@
+{
+  "$schema": "../../../../../conversations/conversation-scenario.schema.json",
+  "id": "accommodation-01-1-01-a-scenario-01",
+  "experienceId": "accommodation-01-1-01-a",
+  "title": "A｜正常完成预订",
+  "order": 1,
+  "setting": "你正在给 Grand Park Hotel 打电话，希望预订一间双人房。你需要说明入住日期、确认房型和价格，并留下预订姓名。",
+  "learningGoals": [
+    "I’d like to book...",
+    "Do you have... available?",
+    "for two nights",
+    "from... to...",
+    "a double room / a single room",
+    "under the name..."
+  ],
+  "background": "accommodation-cover",
+  "participants": [
+    { "id": "player", "name": "你", "role": "player" },
+    { "id": "hotel", "name": "酒店前台", "role": "partner" }
+  ],
+  "turns": [
+    {
+      "id": "hotel-greets",
+      "type": "line",
+      "speakerId": "hotel",
+      "text": "Good afternoon, Grand Park Hotel. How can I help you?"
+    },
+    {
+      "id": "player-opens-booking",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想说明自己要预订房间，会怎么说？",
+      "choices": [
+        {
+          "id": "book-room-polite",
+          "text": "Hi, I’d like to book a room, please.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然、礼貌",
+            "naturalExpression": "Hi, I’d like to book a room, please.",
+            "explanation": "I’d like to... 是向酒店提出需求时常用的礼貌表达；book a room 表示预订房间，句末加 please 更自然。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["book a room", "I’d like to"] }
+          ]
+        },
+        {
+          "id": "make-reservation",
+          "text": "Hi, I want to make a reservation.",
+          "feedback": {
+            "naturalness": 4,
+            "assessment": "自然，可以使用",
+            "naturalExpression": "Hi, I’d like to make a reservation, please.",
+            "explanation": "make a reservation 搭配正确。I want to 语气较直接；对服务人员说 I’d like to... 通常更礼貌。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 2 }]
+        },
+        {
+          "id": "want-book-missing-to",
+          "text": "Hi, I want book a room.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "意思清楚，但语法不完整",
+            "naturalExpression": "Hi, I want to book a room.",
+            "explanation": "want 后面接另一个动词时需要使用 want to + 动词原形，因此不能省略 to。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        },
+        {
+          "id": "ask-for-towels",
+          "text": "Can you bring me some towels?",
+          "feedback": {
+            "naturalness": 1,
+            "assessment": "表达本身正确，但不符合当前情景",
+            "naturalExpression": "Hi, I’d like to book a room, please.",
+            "explanation": "Can you bring me some towels? 是入住后向酒店索要毛巾，不是在电话中开始预订房间的表达。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hotel-asks-dates",
+      "type": "line",
+      "speakerId": "hotel",
+      "text": "Of course. What dates will you be staying with us?"
+    },
+    {
+      "id": "player-gives-dates",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你计划从 10 月 12 日住到 10 月 14 日，会怎么说明？",
+      "choices": [
+        {
+          "id": "dates-from-to",
+          "text": "From October 12th to October 14th.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁、非常自然",
+            "naturalExpression": "From October 12th to October 14th.",
+            "explanation": "酒店已经询问 dates，因此直接用 from... to... 回答起止日期非常自然。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["from... to...", "for two nights"] }
+          ]
+        },
+        {
+          "id": "two-nights-from-date",
+          "text": "I’ll be staying for two nights, from October 12th.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、信息完整",
+            "naturalExpression": "I’ll be staying for two nights, from October 12th.",
+            "explanation": "for two nights 说明住宿时长，from October 12th 说明起始日期，酒店可以据此确定退房日期。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "dates-missing-prepositions",
+          "text": "I stay October 12th to October 14th.",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解，但表达不够自然",
+            "naturalExpression": "I’ll be staying from October 12th to October 14th.",
+            "explanation": "谈论已经计划好的住宿可用 I’ll be staying；日期范围前应保留 from，与 to 构成 from... to...。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        },
+        {
+          "id": "two-people-not-dates",
+          "text": "I’m staying two people.",
+          "feedback": {
+            "naturalness": 1,
+            "assessment": "没有回答入住日期",
+            "naturalExpression": "We’ll be staying for two nights, from October 12th.",
+            "explanation": "two people 表示人数，但前台问的是入住日期。说明人数可以说 There will be two of us。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hotel-asks-room-type",
+      "type": "line",
+      "speakerId": "hotel",
+      "text": "And what kind of room would you like?"
+    },
+    {
+      "id": "player-chooses-room",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你想预订一间双人房，会怎么回答？",
+      "choices": [
+        {
+          "id": "double-room-polite",
+          "text": "I’d like a double room, please.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然、礼貌",
+            "naturalExpression": "I’d like a double room, please.",
+            "explanation": "a double room 通常指带一张双人床、供两人入住的房间；I’d like... 很适合说明房型偏好。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["a double room", "a single room"] }
+          ]
+        },
+        {
+          "id": "double-room-available",
+          "text": "Do you have a double room available?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Do you have a double room available?",
+            "explanation": "Do you have... available? 用来询问某种房型是否还有空房，是电话预订中的高频句型。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["available"] }
+          ]
+        },
+        {
+          "id": "one-large-bed",
+          "text": "I want a room with one large bed.",
+          "feedback": {
+            "naturalness": 4,
+            "assessment": "可以使用，但不够简洁",
+            "naturalExpression": "I’d like a double room, please.",
+            "explanation": "前台能够理解 one large bed，不过直接使用房型名称 a double room 更简洁；I’d like 也比 I want 更礼貌。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 2 }]
+        },
+        {
+          "id": "double-rooms-agreement",
+          "text": "I’d like a double rooms.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "冠词和名词数量不一致",
+            "naturalExpression": "I’d like a double room.",
+            "explanation": "a 表示一个，后面的可数名词应使用单数 room，不能说 a... rooms。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "hotel-quotes-price",
+      "type": "line",
+      "speakerId": "hotel",
+      "text": "Yes, we do. It’ll be $120 per night, including breakfast."
+    },
+    {
+      "id": "player-accepts-price",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你接受每晚 120 美元并包含早餐的价格，会怎么说？",
+      "choices": [
+        {
+          "id": "sounds-good-take-it",
+          "text": "That sounds good. I’ll take it.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "That sounds good. I’ll take it.",
+            "explanation": "That sounds good 表示你认可这个安排；I’ll take it 用来确认接受房型和价格。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "book-it",
+          "text": "Great. I’d like to book it.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、明确",
+            "naturalExpression": "Great. I’d like to book it.",
+            "explanation": "it 指前台刚刚介绍的双人房；这句话明确表示希望按当前条件完成预订。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "take-it-tense",
+          "text": "Okay, I take it.",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解，但时态不自然",
+            "naturalExpression": "Okay, I’ll take it.",
+            "explanation": "当场作出接受决定时，英语通常使用 I’ll take it，而不是一般现在时 I take it。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        },
+        {
+          "id": "how-much-nights",
+          "text": "How much nights?",
+          "feedback": {
+            "naturalness": 1,
+            "assessment": "问题与当前信息不匹配",
+            "naturalExpression": "That sounds good. I’ll take it.",
+            "explanation": "nights 是可数名词，应搭配 how many；而入住晚数已经确定，此时应该确认是否接受价格。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hotel-asks-name",
+      "type": "line",
+      "speakerId": "hotel",
+      "text": "Certainly. May I have your name, please?"
+    },
+    {
+      "id": "player-gives-name",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "前台询问预订姓名，你会怎么回答？",
+      "choices": [
+        {
+          "id": "name-is-alex",
+          "text": "Sure. It’s Alex Chen.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁、非常自然",
+            "naturalExpression": "Sure. It’s Alex Chen.",
+            "explanation": "在电话中提供姓名时，It’s... 是自然常用的回答方式。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "under-alex-chen",
+          "text": "The reservation will be under Alex Chen.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、符合预订语境",
+            "naturalExpression": "The reservation will be under the name Alex Chen.",
+            "explanation": "a reservation under a name 表示以某个姓名登记的预订；补充 under the name... 会更加完整。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["under the name"] }
+          ]
+        },
+        {
+          "id": "name-are",
+          "text": "My name are Alex Chen.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "主谓一致错误",
+            "naturalExpression": "My name is Alex Chen.",
+            "explanation": "主语 My name 是单数，因此 be 动词应使用 is，不能使用 are。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "hotel-confirms-booking",
+      "type": "line",
+      "speakerId": "hotel",
+      "text": "Thank you, Mr. Chen. Your room is booked for October 12th to October 14th. We look forward to seeing you."
+    },
+    {
+      "id": "player-closes-call",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "预订已经完成，你会怎样结束通话？",
+      "choices": [
+        {
+          "id": "thank-see-you",
+          "text": "Thank you. See you then.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、得体",
+            "naturalExpression": "Thank you. See you then.",
+            "explanation": "先感谢前台，再用 See you then 表示到约定日期见，是简洁自然的结束方式。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "thanks-for-help",
+          "text": "Great, thanks for your help.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、友好",
+            "naturalExpression": "Great, thanks for your help.",
+            "explanation": "thanks for your help 很适合在服务人员帮助完成预订后表达感谢。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "you-are-welcome",
+          "text": "You’re welcome.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "语法正确，但不适合这样结束预订",
+            "naturalExpression": "Thank you. See you then.",
+            "explanation": "You’re welcome 通常用于回应别人对你的感谢。这里前台为你完成了预订，作为客人主动道谢并告别更符合语境。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    }
+  ]
+}

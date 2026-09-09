@@ -7,6 +7,18 @@ import packageJson from './package.json'
 export default defineConfig({
   base: '/hello-stranger/',
 
+  server: {
+    host: 'localhost',
+    port: 5101,
+    strictPort: true
+  },
+
+  preview: {
+    host: 'localhost',
+    port: 5101,
+    strictPort: true
+  },
+
   define: {
     __APP_VERSION__: JSON.stringify(packageJson.version)
   },

@@ -10,16 +10,19 @@ import ScenarioNavigator from '@/components/conversation/ScenarioNavigator.vue'
 import { useConversationSession } from '@/composables/useConversationSession'
 import { getBackgroundResource } from '@/config/storyResources'
 import {
-  getConversationExperience,
+  loadConversationExperience,
   listConversationScenarios
 } from '@/scenes/conversations'
 import { getShortSceneSeries } from '@/scenes/shorts'
+import { getThemeCategory } from '@/scenes/themes'
+import { getNextConversationExperienceId } from '@/systems/ConversationNavigationSystem'
 
 const route = useRoute()
 const router = useRouter()
 const session = useConversationSession()
 const scrollArea = ref<HTMLElement | null>(null)
-const answerNotes = ref<Record<string, string>>({})
+const isLoading = ref(false)
+let loadRequestId = 0
 
 function routeParam(value: string | string[] | undefined): string {
   return Array.isArray(value) ? value[0] ?? '' : value ?? ''
@@ -28,6 +31,8 @@ function routeParam(value: string | string[] | undefined): string {
 const seriesId = computed(() => routeParam(route.params.seriesId))
 const experienceId = computed(() => routeParam(route.params.experienceId))
 const series = computed(() => getShortSceneSeries(seriesId.value))
+const theme = computed(() => getThemeCategory(seriesId.value))
+const collection = computed(() => theme.value ?? series.value)
 const background = computed(() =>
   getBackgroundResource(session.currentScenario.value?.background ?? '')
 )
@@ -45,57 +50,54 @@ const scenarioPosition = computed(
 const experienceKindLabel = computed(() =>
   session.experience.value?.kind === 'lesson'
     ? `Lesson ${session.experience.value.number}`
-    : series.value?.experienceLabel ?? 'Conversation'
+    : collection.value?.experienceLabel ?? 'Conversation'
 )
 const directoryRoute = computed(() => ({
-  name: 'short-scene-series' as const,
-  params: { seriesId: seriesId.value }
+  name: theme.value
+    ? 'theme-category' as const
+    : 'short-scene-series' as const,
+  params: theme.value
+    ? { themeId: seriesId.value }
+    : { seriesId: seriesId.value }
 }))
 const directoryLabel = computed(() =>
   session.experience.value?.kind === 'lesson' ? '课程目录' : '会话目录'
 )
-const currentAnswerNoteKey = computed(() => {
-  const scenarioId = session.currentScenario.value?.id
-  const turnId = session.currentChoiceTurn.value?.id
-  return scenarioId && turnId ? `${scenarioId}:${turnId}` : ''
-})
-const currentAnswerNote = computed({
-  get: () => answerNotes.value[currentAnswerNoteKey.value] ?? '',
-  set: (value: string) => {
-    if (currentAnswerNoteKey.value) {
-      answerNotes.value[currentAnswerNoteKey.value] = value
-    }
-  }
-})
-
+const nextExperienceId = computed(() =>
+  getNextConversationExperienceId(seriesId.value, experienceId.value)
+)
 function selectedScenarioId(): string | undefined {
   const value = route.query.scenario
   const scenarioId = Array.isArray(value) ? value[0] : value
   return scenarioId || undefined
 }
 
-function loadSelectedExperience(): void {
-  const selectedExperience = getConversationExperience(experienceId.value)
-  if (!selectedExperience || selectedExperience.seriesId !== seriesId.value) {
-    session.clear()
-    return
-  }
-
-  const scenarios = listConversationScenarios(selectedExperience.id)
+async function loadSelectedExperience(): Promise<void> {
+  const requestId = ++loadRequestId
+  session.clear()
+  isLoading.value = true
   try {
-    session.loadExperience(selectedExperience, scenarios, selectedScenarioId())
+    const selectedExperience = await loadConversationExperience(
+      seriesId.value,
+      experienceId.value
+    )
+    if (requestId !== loadRequestId) return
+    if (!selectedExperience) return
+
+    const scenarios = listConversationScenarios(selectedExperience.id)
+    try {
+      session.loadExperience(selectedExperience, scenarios, selectedScenarioId())
+    } catch {
+      session.loadExperience(selectedExperience, scenarios)
+    }
   } catch {
-    session.loadExperience(selectedExperience, scenarios)
+    if (requestId === loadRequestId) session.clear()
+  } finally {
+    if (requestId === loadRequestId) isLoading.value = false
   }
 }
 
 function restartCurrentScenario(): void {
-  const scenarioPrefix = `${session.currentScenario.value?.id ?? ''}:`
-  answerNotes.value = Object.fromEntries(
-    Object.entries(answerNotes.value).filter(
-      ([key]) => !key.startsWith(scenarioPrefix)
-    )
-  )
   session.restartScenario()
 }
 
@@ -114,9 +116,23 @@ function goToNextScenario(): void {
   }
 }
 
+function goToNextConversation(): void {
+  if (!nextExperienceId.value) return
+
+  void router.push({
+    name: theme.value
+      ? 'theme-conversation-experience'
+      : 'conversation-experience',
+    params: {
+      seriesId: seriesId.value,
+      experienceId: nextExperienceId.value
+    }
+  })
+}
+
 watch(
   () => [route.params.seriesId, route.params.experienceId, route.query.scenario],
-  loadSelectedExperience,
+  () => void loadSelectedExperience(),
   { immediate: true }
 )
 
@@ -131,9 +147,13 @@ watch(
 
 <template>
   <section class="conversation-page">
-    <div v-if="session.phase.value === 'empty'" class="empty-state">
+    <div v-if="isLoading" class="empty-state">
+      <p>正在加载英语会话……</p>
+    </div>
+
+    <div v-else-if="session.phase.value === 'empty'" class="empty-state">
       <p>没有找到这个英语会话。</p>
-      <RouterLink :to="directoryRoute">返回{{ series?.title ?? '会话' }}目录</RouterLink>
+      <RouterLink :to="directoryRoute">返回{{ collection?.title ?? '会话' }}目录</RouterLink>
     </div>
 
     <template v-else-if="session.currentScenario.value && session.experience.value">
@@ -164,6 +184,7 @@ watch(
           :scenario-number="session.currentScenarioIndex.value + 1"
           :title="session.currentScenario.value.title"
           :setting="session.currentScenario.value.setting"
+          :learning-goals="session.currentScenario.value.learningGoals"
           :compact="session.phase.value !== 'intro'"
           @start="session.beginScenario"
         />
@@ -197,6 +218,7 @@ watch(
           <p>你已经完成了“{{ session.currentScenario.value.title }}”这段小会话。</p>
           <div class="complete-actions">
             <button v-if="session.hasNextScenario.value" type="button" @click="goToNextScenario">下一个情景</button>
+            <button v-else-if="nextExperienceId" type="button" @click="goToNextConversation">下一个对话</button>
             <button v-else type="button" @click="restartCurrentScenario">重新体验</button>
             <RouterLink :to="directoryRoute">返回{{ directoryLabel }}</RouterLink>
           </div>
@@ -204,21 +226,12 @@ watch(
 
         <CollapsibleChoicePanel
           v-else-if="session.phase.value === 'choice' && session.currentChoiceTurn.value"
-          :key="currentAnswerNoteKey"
-          v-model="currentAnswerNote"
+          :key="session.currentChoiceTurn.value.id"
           :prompt="session.currentChoiceTurn.value.prompt"
           :choices="session.currentChoiceTurn.value.choices"
           @select="session.selectChoice"
         />
 
-        <button
-          v-else-if="session.phase.value === 'conversation'"
-          class="continue-button"
-          type="button"
-          @click="session.advanceConversation"
-        >
-          继续 <span aria-hidden="true">→</span>
-        </button>
       </aside>
 
       <ConversationFeedbackModal
@@ -355,17 +368,6 @@ watch(
   outline: 0.12rem solid rgb(255 250 242 / 50%);
   outline-offset: 0.25rem;
   border-radius: 1rem;
-}
-
-.continue-button {
-  justify-self: end;
-  padding: 0.7rem 1rem;
-  color: #173f3a;
-  background: rgb(255 253 248 / 88%);
-  border: 0;
-  border-radius: 999px;
-  font-weight: 800;
-  cursor: pointer;
 }
 
 .complete-card {

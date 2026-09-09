@@ -1,0 +1,161 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-20-scenario-01",
+  "experienceId": "dk-lesson-20",
+  "title": "What kind of food do you like?",
+  "order": 1,
+  "setting": "你正在和朋友聊各自喜欢的食物。对方想知道你的饮食偏好，你可以选择最符合自己的方式回答。",
+  "background": "dk-restaurant",
+  "participants": [
+    { "id": "player", "name": "你", "role": "player" },
+    { "id": "friend", "name": "朋友", "role": "partner" }
+  ],
+  "turns": [
+    {
+      "id": "friend-asks-food-preference",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "What kind of food do you like?"
+    },
+    {
+      "id": "player-describes-food-preference",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "朋友问你喜欢吃什么，你会怎么回答？",
+      "choices": [
+        {
+          "id": "try-different-cuisines",
+          "text": "I enjoy trying food from different countries.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "I enjoy trying food from different countries.",
+            "explanation": "enjoy 后接动名词 trying，表示喜欢尝试来自不同国家的食物。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["try food from different countries", "cuisine"] }
+          ]
+        },
+        {
+          "id": "all-kinds-of-food",
+          "text": "I like all kinds of food.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "I like all kinds of food.",
+            "explanation": "all kinds of food 表示各种各样的食物，是谈论广泛饮食喜好的常用说法。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["all kinds of food"] }
+          ]
+        },
+        {
+          "id": "different-country-foods-awkward",
+          "text": "I enjoy to try different country foods.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "可以理解，但不够自然",
+            "naturalExpression": "I enjoy trying food from different countries.",
+            "explanation": "enjoy 后面通常接动名词，因此应说 enjoy trying；food from different countries 也比 different country foods 更自然。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 1 }
+          ]
+        },
+        {
+          "id": "chinese-sichuan-spicy",
+          "text": "I like Chinese food, especially Sichuan food. I love spicy food.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "具体而自然",
+            "naturalExpression": "I like Chinese food, especially Sichuan food. I love spicy food.",
+            "explanation": "先说整体偏好，再用 especially 补充具体菜系，表达清楚自然；spicy food 表示辣味食物。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["Sichuan food", "spicy food", "especially"] }
+          ]
+        },
+        {
+          "id": "asian-food-preference",
+          "text": "I like all kinds of food, but I especially like Asian food.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "完整自然",
+            "naturalExpression": "I like all kinds of food, but I especially like Asian food.",
+            "explanation": "but I especially like... 可以在广泛喜好之后突出自己最喜欢的一类食物。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["Asian food", "especially"] }
+          ]
+        },
+        {
+          "id": "not-picky",
+          "text": "I’m not really picky. I’ll eat pretty much anything.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常口语、自然",
+            "naturalExpression": "I’m not really picky. I’ll eat pretty much anything.",
+            "explanation": "not picky 表示不挑食；pretty much anything 表示基本上什么都吃，是很自然的日常口语。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["not picky", "pretty much anything"] }
+          ]
+        },
+        {
+          "id": "italian-food",
+          "text": "I’m really into Italian food.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、很有口语感",
+            "naturalExpression": "I’m really into Italian food.",
+            "explanation": "be really into... 表示非常喜欢或对某事很感兴趣，比单纯的 like 语气更强。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["be really into", "Italian food"] }
+          ]
+        },
+        {
+          "id": "seafood-fish",
+          "text": "I like seafood, especially fish.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "I like seafood, especially fish.",
+            "explanation": "seafood 是海鲜的总称，使用 especially fish 可以进一步说明自己特别喜欢鱼类。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["seafood", "especially fish"] }
+          ]
+        },
+        {
+          "id": "japanese-korean-food",
+          "text": "I’m really into Japanese and Korean food.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、明确",
+            "naturalExpression": "I’m really into Japanese and Korean food.",
+            "explanation": "be really into... 很适合表达近期或长期都很喜欢某类食物；并列两种菜系时直接使用 and 连接。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["Japanese food", "Korean food", "be really into"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "friend-shares-preference",
+      "type": "line",
+      "speakerId": "friend",
+      "text": "That sounds good. I especially like Thai food, but I’m always happy to try something new.",
+      "endScenario": true
+    }
+  ]
+}

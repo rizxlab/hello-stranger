@@ -3,6 +3,7 @@ defineProps<{
   scenarioNumber: number
   title: string
   setting: string
+  learningGoals?: string[]
   compact: boolean
 }>()
 
@@ -19,6 +20,12 @@ defineEmits<{
       <span aria-hidden="true">◎</span>
       <p>{{ setting }}</p>
     </div>
+    <section v-if="!compact && learningGoals?.length" class="learning-goals" aria-label="训练重点">
+      <strong>训练重点</strong>
+      <ul>
+        <li v-for="goal in learningGoals" :key="goal">{{ goal }}</li>
+      </ul>
+    </section>
     <button v-if="!compact" type="button" @click="$emit('start')">开始会话 <span aria-hidden="true">→</span></button>
   </article>
 </template>
@@ -82,6 +89,36 @@ h2 {
 .setting > span {
   color: #b95431;
   font-weight: 900;
+}
+
+.learning-goals {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.learning-goals > strong {
+  color: #b95431;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+.learning-goals ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.learning-goals li {
+  padding: 0.38rem 0.58rem;
+  color: #214f49;
+  background: rgb(23 63 58 / 8%);
+  border-radius: 0.65rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.61rem;
+  line-height: 1.35;
 }
 
 button {

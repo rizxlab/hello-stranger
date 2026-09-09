@@ -10,7 +10,6 @@ import type { ChoiceFeedback, StoryReward } from '@/scenes/types'
 export type ConversationPhase =
   | 'empty'
   | 'intro'
-  | 'conversation'
   | 'choice'
   | 'feedback'
   | 'scenario-complete'
@@ -122,21 +121,7 @@ export class ConversationSequenceSystem {
     if (this.phaseValue !== 'intro') {
       throw new ConversationSequenceError('只有情景介绍页可以开始会话。')
     }
-    this.revealCurrentTurn()
-  }
-
-  advanceConversation(): void {
-    if (this.phaseValue !== 'conversation') {
-      throw new ConversationSequenceError('当前没有可继续推进的对话。')
-    }
-    const turn = this.currentTurn
-    if (turn?.type === 'line' && turn.endScenario) {
-      this.phaseValue = 'scenario-complete'
-      return
-    }
-
-    this.turnIndex += 1
-    this.revealCurrentTurn()
+    this.revealUntilInteraction()
   }
 
   selectChoice(choiceId: string): ConversationChoiceResult {
@@ -198,7 +183,7 @@ export class ConversationSequenceSystem {
     } else {
       this.turnIndex += 1
     }
-    this.revealCurrentTurn()
+    this.revealUntilInteraction()
     return confirmedResult
   }
 
@@ -245,26 +230,35 @@ export class ConversationSequenceSystem {
     this.phaseValue = 'intro'
   }
 
-  private revealCurrentTurn(): void {
-    const turn = this.currentTurn
-    if (!turn) {
-      this.phaseValue = 'scenario-complete'
-      return
-    }
+  /** 将连续台词一次加入记录，并停在下一个玩家选择或情景结束处。 */
+  private revealUntilInteraction(): void {
+    while (true) {
+      const turn = this.currentTurn
+      if (!turn) {
+        this.phaseValue = 'scenario-complete'
+        return
+      }
 
-    if (turn.type === 'choice') {
-      this.phaseValue = 'choice'
-      return
-    }
+      if (turn.type === 'choice') {
+        this.phaseValue = 'choice'
+        return
+      }
 
-    this.transcriptValue.push({
-      turnId: turn.id,
-      speakerId: turn.speakerId,
-      text: turn.text,
-      translation: turn.translation,
-      isPlayerChoice: false
-    })
-    this.phaseValue = 'conversation'
+      this.transcriptValue.push({
+        turnId: turn.id,
+        speakerId: turn.speakerId,
+        text: turn.text,
+        translation: turn.translation,
+        isPlayerChoice: false
+      })
+
+      if (turn.endScenario) {
+        this.phaseValue = 'scenario-complete'
+        return
+      }
+
+      this.turnIndex += 1
+    }
   }
 
   private createChoiceResult(

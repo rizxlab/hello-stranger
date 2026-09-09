@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { appConfig } from '@/config/app'
-import PlayerResetPanel from '@/components/developer/PlayerResetPanel.vue'
+import PlayerDataResetPanel from '@/components/player/PlayerDataResetPanel.vue'
 import {
   listConversationExperiences,
   listConversationScenarios
 } from '@/scenes/conversations'
 import { listAllChapters, listStories } from '@/scenes'
 import { listShortScenes, listShortSceneSeries } from '@/scenes/shorts'
+import { listThemeCategories } from '@/scenes/themes'
 import { usePlayerStore } from '@/stores/player'
 
 const player = usePlayerStore()
@@ -17,8 +18,8 @@ const diagnostics = computed(() => [
   { label: '已注册章节', value: listAllChapters().length },
   { label: '已注册短情景', value: listShortScenes().length },
   { label: '短情景栏目', value: listShortSceneSeries().length },
+  { label: '主题分类', value: listThemeCategories().length },
   { label: 'DK会话课程', value: listConversationExperiences('dk-conversations').length },
-  { label: '常见情景会话', value: listConversationExperiences('common-conversations').length },
   { label: 'DK子情景', value: listConversationScenarios('dk-lesson-15').length },
   { label: '当前故事', value: player.progress.storyId ?? '—' },
   { label: '当前章节', value: player.progress.chapterId ?? '—' },
@@ -50,7 +51,7 @@ const diagnostics = computed(() => [
       <p class="muted">口语 {{ player.english.speaking }} · 词汇 {{ player.vocabulary.length }} · 等级 {{ player.level }}</p>
     </article>
 
-    <PlayerResetPanel />
+    <PlayerDataResetPanel variant="developer" />
   </section>
 </template>
 

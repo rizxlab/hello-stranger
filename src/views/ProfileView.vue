@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PlayerDataResetPanel from '@/components/player/PlayerDataResetPanel.vue'
 import { usePlayerStore } from '@/stores/player'
 
 const player = usePlayerStore()
@@ -41,6 +42,8 @@ const skillItems = [
       </div>
       <p v-else class="muted">完成剧情选择后，学到的表达会显示在这里。</p>
     </article>
+
+    <PlayerDataResetPanel />
   </section>
 </template>
 
@@ -54,6 +57,10 @@ const skillItems = [
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.profile-header h1 {
+  font-size: clamp(2rem, 8vw, 3.25rem);
 }
 
 .settings-link {

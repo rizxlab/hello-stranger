@@ -15,14 +15,13 @@ describe('short scene registry', () => {
   })
 
   it('registers DK as a conversation lesson series', () => {
-    expect(listShortSceneSeries()).toHaveLength(2)
+    expect(listShortSceneSeries()).toHaveLength(1)
     expect(getShortSceneSeries('dk-conversations')?.title).toBe('DK英语会话')
     expect(getShortSceneSeries('dk-conversations')?.contentType).toBe(
       'conversation-experiences'
     )
     expect(getShortScene('dk-first-meeting')).toBeNull()
-    expect(getShortSceneSeries('common-conversations')?.title).toBe(
-      '常见情景会话'
-    )
+    expect(getShortSceneSeries('common-conversations')).toBeNull()
   })
+
 })

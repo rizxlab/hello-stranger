@@ -33,7 +33,50 @@ const router = createRouter({
     {
       path: '/stories/:storyId',
       name: 'story-chapters',
-      component: () => import('@/views/ChapterCatalogView.vue')
+      component: () => import('@/views/ChapterCatalogView.vue'),
+      meta: { navigation: 'stories' }
+    },
+    {
+      path: '/themes',
+      name: 'themes',
+      component: () => import('@/views/ThemeCatalogView.vue')
+    },
+    {
+      path: '/themes/:seriesId/conversation/:experienceId',
+      name: 'theme-conversation-experience',
+      component: () => import('@/views/ConversationExperienceView.vue'),
+      meta: { hideNavigation: true, immersive: true }
+    },
+    {
+      path: '/themes/:themeId',
+      name: 'theme-category',
+      component: () => import('@/views/ThemeDirectoryView.vue'),
+      meta: { navigation: 'themes' }
+    },
+    {
+      path: '/themes/:themeId/:sectionId',
+      name: 'theme-section',
+      redirect: (to) => ({
+        name: 'theme-category',
+        params: { themeId: to.params.themeId },
+        query: {
+          ...to.query,
+          section: String(to.params.sectionId)
+        }
+      })
+    },
+    {
+      path: '/themes/:themeId/:sectionId/:topicId',
+      name: 'theme-topic',
+      redirect: (to) => ({
+        name: 'theme-category',
+        params: { themeId: to.params.themeId },
+        query: {
+          ...to.query,
+          section: String(to.params.sectionId),
+          topic: String(to.params.topicId)
+        }
+      })
     },
     {
       path: '/shorts',
@@ -43,7 +86,8 @@ const router = createRouter({
     {
       path: '/shorts/series/:seriesId',
       name: 'short-scene-series',
-      component: () => import('@/views/ShortSceneSeriesView.vue')
+      component: () => import('@/views/ConversationCollectionView.vue'),
+      meta: { navigation: 'short-scenes' }
     },
     {
       path: '/shorts/series/:seriesId/conversation/:experienceId',

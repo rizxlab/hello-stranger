@@ -1,4 +1,5 @@
 import type {
+  ConversationContentBundleDefinition,
   ConversationExperienceDefinition,
   ConversationLessonCatalog,
   ConversationLessonCatalogEntry,
@@ -8,7 +9,8 @@ import type {
 const experienceModules = import.meta.glob<ConversationExperienceDefinition>(
   [
     '../shorts/series/*/lessons/*/lesson.json',
-    '../shorts/series/*/conversations/*/conversation.json'
+    '../shorts/series/*/conversations/*/conversation.json',
+    '../themes/*/conversations/*/conversation.json'
   ],
   { eager: true, import: 'default' }
 )
@@ -16,10 +18,17 @@ const experienceModules = import.meta.glob<ConversationExperienceDefinition>(
 const scenarioModules = import.meta.glob<ConversationScenarioDefinition>(
   [
     '../shorts/series/*/lessons/*/scenarios/*.json',
-    '../shorts/series/*/conversations/*/scenarios/*.json'
+    '../shorts/series/*/conversations/*/scenarios/*.json',
+    '../themes/*/conversations/*/scenarios/*.json'
   ],
   { eager: true, import: 'default' }
 )
+
+const contentBundleModules =
+  import.meta.glob<ConversationContentBundleDefinition>(
+    '../themes/*/conversation-bundles/*.json',
+    { import: 'default' }
+  )
 
 const lessonCatalogModules = import.meta.glob<ConversationLessonCatalog>(
   '../shorts/series/*/lesson-catalogs/*.json',
@@ -138,14 +147,14 @@ const catalogLessons = Object.values(lessonCatalogModules).flatMap((catalog) =>
 function createRegistry<T extends { id: string }>(
   entries: T[],
   label: string
-): Readonly<Record<string, T>> {
-  return Object.freeze(entries.reduce<Record<string, T>>((registry, entry) => {
+): Record<string, T> {
+  return entries.reduce<Record<string, T>>((registry, entry) => {
     if (registry[entry.id]) {
       throw new Error(`${label} ID "${entry.id}" 重复。`)
     }
     registry[entry.id] = entry
     return registry
-  }, {}))
+  }, {})
 }
 
 const experienceRegistry = createRegistry(
@@ -162,6 +171,77 @@ const scenarioRegistry = createRegistry(
   ],
   '会话子情景'
 )
+
+const contentBundlePromises = new Map<
+  string,
+  Promise<ConversationContentBundleDefinition | null>
+>()
+
+function topicIdFromExperienceId(
+  seriesId: string,
+  experienceId: string
+): string {
+  const prefix = `${seriesId}-`
+  if (!experienceId.startsWith(prefix)) return ''
+
+  const match = experienceId.slice(prefix.length).match(/^(\d{2})-(\d+)-(\d+)-[a-z]$/u)
+  return match ? `${match[1]}.${match[2]}.${match[3]}` : ''
+}
+
+function registerContentBundle(bundle: ConversationContentBundleDefinition): void {
+  for (const experience of bundle.experiences) {
+    if (experience.seriesId !== bundle.seriesId) {
+      throw new Error(
+        `会话内容包 "${bundle.seriesId}" 包含了其他系列的体验 "${experience.id}"。`
+      )
+    }
+    if (experienceRegistry[experience.id]) {
+      throw new Error(`会话体验 ID "${experience.id}" 重复。`)
+    }
+    experienceRegistry[experience.id] = experience
+  }
+
+  for (const scenario of bundle.scenarios) {
+    if (scenarioRegistry[scenario.id]) {
+      throw new Error(`会话子情景 ID "${scenario.id}" 重复。`)
+    }
+    scenarioRegistry[scenario.id] = scenario
+  }
+}
+
+async function loadContentBundle(
+  seriesId: string,
+  topicId: string
+): Promise<ConversationContentBundleDefinition | null> {
+  const modulePath = `../themes/${seriesId}/conversation-bundles/${topicId}.json`
+  const loader = contentBundleModules[modulePath]
+  if (!loader) return null
+
+  const existingPromise = contentBundlePromises.get(modulePath)
+  if (existingPromise) return existingPromise
+
+  const promise = loader().then((bundle) => {
+    registerContentBundle(bundle)
+    return bundle
+  })
+  contentBundlePromises.set(modulePath, promise)
+  return promise
+}
+
+export async function loadConversationExperience(
+  seriesId: string,
+  experienceId: string
+): Promise<ConversationExperienceDefinition | null> {
+  const existing = getConversationExperience(experienceId)
+  if (existing) return existing.seriesId === seriesId ? existing : null
+
+  const topicId = topicIdFromExperienceId(seriesId, experienceId)
+  if (!topicId) return null
+
+  await loadContentBundle(seriesId, topicId)
+  const loaded = getConversationExperience(experienceId)
+  return loaded?.seriesId === seriesId ? loaded : null
+}
 
 export function listConversationExperiences(
   seriesId: string

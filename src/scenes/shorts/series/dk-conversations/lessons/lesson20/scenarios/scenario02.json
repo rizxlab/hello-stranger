@@ -1,0 +1,678 @@
+{
+  "$schema": "../../../../../../conversations/conversation-scenario.schema.json",
+  "id": "dk-lesson-20-scenario-02",
+  "experienceId": "dk-lesson-20",
+  "title": "Cooking Class — Let’s Make Dinner",
+  "order": 2,
+  "setting": "你正在参加一堂轻松的英语烹饪课。你会和老师一起准备晚餐和甜点，并练习描述削皮、切片、搅拌和擀面等常见烹饪动作。",
+  "background": "dk-restaurant",
+  "participants": [
+    { "id": "player", "name": "你", "role": "player" },
+    { "id": "instructor", "name": "烹饪老师", "role": "partner" }
+  ],
+  "turns": [
+    {
+      "id": "instructor-ready",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "All right, ready to start?"
+    },
+    {
+      "id": "player-ready",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你准备好了，想问第一步该做什么，会怎么说？",
+      "choices": [
+        {
+          "id": "ready-what-first",
+          "text": "Yep! What should I do first?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Yep! What should I do first?",
+            "explanation": "What should I do first? 是询问操作第一步最直接、自然的表达。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "ready-where-start",
+          "text": "Absolutely. Where should we start?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、积极",
+            "naturalExpression": "Absolutely. Where should we start?",
+            "explanation": "Where should we start? 侧重询问大家应该从哪一步开始，同样很自然。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "ready-awkward",
+          "text": "Yes! What I should do first?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "意思清楚，但语序不对",
+            "naturalExpression": "Yes! What should I do first?",
+            "explanation": "特殊疑问句中 should 要放在主语 I 前面：What should I do...?"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-potatoes",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Let’s start with the vegetables. What do you think we should do with these potatoes?"
+    },
+    {
+      "id": "player-peels-potatoes",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "土豆还带着皮，你觉得应该先怎么处理？",
+      "choices": [
+        {
+          "id": "peel-first",
+          "text": "I think we should peel them first.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "I think we should peel them first.",
+            "explanation": "peel 表示削去水果或蔬菜的外皮；them 指前面提到的 potatoes。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["peel", "peel the potatoes"] }
+          ]
+        },
+        {
+          "id": "take-skin-off",
+          "text": "Let’s take the skin off first.",
+          "feedback": {
+            "naturalness": 4,
+            "assessment": "自然，可以使用",
+            "naturalExpression": "Let’s peel them first.",
+            "explanation": "take the skin off 可以理解且自然，但谈论蔬菜时使用动词 peel 更简洁。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 2 }]
+        },
+        {
+          "id": "peel-off-awkward",
+          "text": "I think we should peel off their skins first.",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解，但略显累赘",
+            "naturalExpression": "I think we should peel them first.",
+            "explanation": "peel the potatoes 已经包含去皮的意思，不必再补充 off their skins。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-carrots-onions",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Exactly. And what about the carrots and onions?"
+    },
+    {
+      "id": "player-cuts-vegetables",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你准备把胡萝卜切片、把洋葱切碎，会怎么说？",
+      "choices": [
+        {
+          "id": "slice-and-chop",
+          "text": "I’ll slice the carrots and chop the onions.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "I’ll slice the carrots and chop the onions.",
+            "explanation": "slice 强调切成薄片；chop 强调快速切成较小的块，两者放在一起很适合区分动作。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["slice", "chop"] }
+          ]
+        },
+        {
+          "id": "cut-vegetables",
+          "text": "I’ll cut the carrots into slices and finely chop the onions.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "具体而自然",
+            "naturalExpression": "I’ll cut the carrots into slices and finely chop the onions.",
+            "explanation": "cut... into slices 明确说明切成片；finely chop 表示切得很碎。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["into slices", "finely chop"] }
+          ]
+        },
+        {
+          "id": "slice-onions-awkward",
+          "text": "I’ll make slices with the carrots and small the onions.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "可以猜出意思，但搭配不自然",
+            "naturalExpression": "I’ll slice the carrots and chop the onions.",
+            "explanation": "slice 和 chop 本身就是动作动词；small 不能直接用作“切小”的动词。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-needs-cheese",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Great. We also need some cheese. Could you help me with that?"
+    },
+    {
+      "id": "player-grates-cheese",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "桌上有一块奶酪和擦丝器，你会怎么确认？",
+      "choices": [
+        {
+          "id": "grate-cheese",
+          "text": "Sure. Should I grate the cheese?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Sure. Should I grate the cheese?",
+            "explanation": "grate 表示用擦丝器把奶酪等食材擦成细丝或碎屑。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["grate", "grate the cheese"] }
+          ]
+        },
+        {
+          "id": "would-you-like-grated",
+          "text": "Of course. Would you like me to grate it?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "礼貌自然",
+            "naturalExpression": "Would you like me to grate it?",
+            "explanation": "Would you like me to...? 是主动提出帮忙的礼貌表达。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "scratch-cheese-awkward",
+          "text": "Should I scratch the cheese into small pieces?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "用词不准确",
+            "naturalExpression": "Should I grate the cheese?",
+            "explanation": "scratch 是抓、刮擦；使用擦丝器处理奶酪应使用 grate。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-cheese-amount",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Yes, but not too much. About 100 grams."
+    },
+    {
+      "id": "player-weighs-cheese",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "老师只需要约 100 克奶酪，你准备先称重，会怎么说？",
+      "choices": [
+        {
+          "id": "weigh-first",
+          "text": "Okay, I’ll weigh it first.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁准确",
+            "naturalExpression": "Okay, I’ll weigh it first.",
+            "explanation": "weigh 是动词，表示称重量；it 指代前面提到的 cheese。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["weigh", "100 grams"] }
+          ]
+        },
+        {
+          "id": "measure-weight",
+          "text": "I’ll check the weight before I grate it.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、说明清楚",
+            "naturalExpression": "I’ll check the weight before I grate it.",
+            "explanation": "check the weight 也可以表示确认重量；before 清楚说明了动作顺序。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "weight-it-awkward",
+          "text": "Okay, I’ll weight it first.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "词性使用错误",
+            "naturalExpression": "Okay, I’ll weigh it first.",
+            "explanation": "weight 是名词“重量”；动词“称重”是 weigh。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-starts-sauce",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Now we’re going to make the sauce. Here’s the cream."
+    },
+    {
+      "id": "player-pours-cream",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你拿到奶油后，想确认是否要倒进碗里，会怎么问？",
+      "choices": [
+        {
+          "id": "pour-into-bowl",
+          "text": "Should I pour it into the bowl?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "Should I pour it into the bowl?",
+            "explanation": "pour... into... 表示把液体倒入某个容器。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["pour", "pour into"] }
+          ]
+        },
+        {
+          "id": "add-cream",
+          "text": "Do you want me to add the cream to the bowl?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然，可以使用",
+            "naturalExpression": "Do you want me to add the cream to the bowl?",
+            "explanation": "add... to... 强调加入材料；pour 更具体地描述倒入液体的动作。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "pour-bowl-awkward",
+          "text": "Should I pour the bowl with it?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "介词搭配不自然",
+            "naturalExpression": "Should I pour it into the bowl?",
+            "explanation": "液体是被倒入的东西，应使用 pour it into the bowl。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-adds-cheese",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Yes. Then add the cheese."
+    },
+    {
+      "id": "player-mixes-sauce",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "奶油和奶酪都在碗里了，你准备把它们混合起来，会怎么说？",
+      "choices": [
+        {
+          "id": "mix-together",
+          "text": "Got it. I’ll mix them together.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Got it. I’ll mix them together.",
+            "explanation": "mix 强调把不同材料混合在一起；them 指奶油和奶酪。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["mix", "mix together"] }
+          ]
+        },
+        {
+          "id": "combine-ingredients",
+          "text": "Okay. I’ll combine the cream and cheese.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "I’ll combine the cream and cheese.",
+            "explanation": "combine 比 mix 稍正式，同样表示把两种材料合在一起。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "mix-with-awkward",
+          "text": "I’ll mix the cream to the cheese.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "介词搭配不自然",
+            "naturalExpression": "I’ll mix the cream and cheese together.",
+            "explanation": "表示混合两种材料时，可以说 mix A and B together，或 mix A with B。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-stirring",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Use this spoon and keep going."
+    },
+    {
+      "id": "player-stirs-sauce",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "老师递给你一把勺子，你想确认是否继续搅拌，会怎么问？",
+      "choices": [
+        {
+          "id": "keep-stirring",
+          "text": "Like this? I just keep stirring it?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然、符合现场对话",
+            "naturalExpression": "Like this? I just keep stirring it?",
+            "explanation": "stir 指用勺子等反复搅动；keep stirring 表示继续不停地搅拌。mix 强调混合材料，stir 强调具体的搅动动作。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["stir", "keep stirring"] }
+          ]
+        },
+        {
+          "id": "continue-stirring",
+          "text": "Should I keep stirring until it’s smooth?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "具体而自然",
+            "naturalExpression": "Should I keep stirring until it’s smooth?",
+            "explanation": "until it’s smooth 表示一直搅拌到质地顺滑，明确说明结束条件。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "stir-continuous-awkward",
+          "text": "I continue to mix it around with the spoon?",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解，但不够简洁",
+            "naturalExpression": "Should I keep stirring it?",
+            "explanation": "这里用 stir 就能准确表达用勺子搅动，不需要 mix it around with the spoon。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-dessert-eggs",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Exactly. While that’s cooking, let’s make the dessert. Can you crack two eggs into this bowl?"
+    },
+    {
+      "id": "player-whisks-eggs",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你把鸡蛋打进碗里后，想确认是否需要搅打均匀，会怎么问？",
+      "choices": [
+        {
+          "id": "whisk-eggs",
+          "text": "Sure. Do I need to whisk them?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "Sure. Do I need to whisk them?",
+            "explanation": "whisk 表示用打蛋器快速搅打，使鸡蛋或奶油变得均匀、蓬松。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["whisk", "crack an egg"] }
+          ]
+        },
+        {
+          "id": "beat-eggs",
+          "text": "Should I beat the eggs until they’re smooth?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "自然，可以使用",
+            "naturalExpression": "Should I beat the eggs until they’re smooth?",
+            "explanation": "beat the eggs 也是“搅打鸡蛋”的常用表达；whisk 更突出使用打蛋器的动作。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "stir-eggs-awkward",
+          "text": "Do I need to stir the eggs very fast?",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解，但用词不够准确",
+            "naturalExpression": "Do I need to whisk the eggs?",
+            "explanation": "stir 是一般搅拌；需要把鸡蛋快速搅打均匀时，whisk 或 beat 更准确。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-adds-flour",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Yes. Whisk the eggs, then add the flour."
+    },
+    {
+      "id": "player-mixes-dessert",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "加入面粉后，你想确认下一步，会怎么问？",
+      "choices": [
+        {
+          "id": "mix-everything",
+          "text": "And then mix everything together?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "And then mix everything together?",
+            "explanation": "everything 指碗里的所有材料；mix together 强调把不同材料混合均匀。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["mix everything together"] }
+          ]
+        },
+        {
+          "id": "combine-until-dough",
+          "text": "Do I combine everything until it forms a dough?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "具体自然",
+            "naturalExpression": "Do I combine everything until it forms a dough?",
+            "explanation": "forms a dough 表示材料混合后形成面团，适合说明希望达到的状态。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["form a dough"] }
+          ]
+        },
+        {
+          "id": "mix-all-awkward",
+          "text": "And then I mix all things with together?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "搭配不自然",
+            "naturalExpression": "And then I mix everything together?",
+            "explanation": "应使用 everything，而不是 all things；together 前面不需要 with。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-dough-ready",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Right. Once the dough is ready, what’s next?"
+    },
+    {
+      "id": "player-rolls-dough",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "面团准备好了，你觉得下一步需要把它擀开，会怎么说？",
+      "choices": [
+        {
+          "id": "roll-it-out",
+          "text": "We need to roll it out, right?",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "准确自然",
+            "naturalExpression": "We need to roll it out, right?",
+            "explanation": "roll out 表示用擀面杖把面团擀平、擀开；it 指代 dough。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["roll out", "dough"] }
+          ]
+        },
+        {
+          "id": "roll-until-thin",
+          "text": "Next, we roll the dough out until it’s thin.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "完整自然",
+            "naturalExpression": "Next, we roll the dough out until it’s thin.",
+            "explanation": "roll the dough out 是可分短语；until it’s thin 说明要擀到的厚度。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "roll-open-awkward",
+          "text": "We need to roll it open, right?",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "可以猜出意思，但短语不正确",
+            "naturalExpression": "We need to roll it out, right?",
+            "explanation": "表示把面团擀开时使用固定短语 roll out，而不是 roll open。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-smells-burning",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Exactly. Nice and thin. Wait… do you smell something?"
+    },
+    {
+      "id": "player-notices-burn",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你闻到了焦味，发现洋葱可能已经烧焦，会怎么说？",
+      "choices": [
+        {
+          "id": "burned-onions",
+          "text": "Oh no! I think I burned the onions!",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "非常自然",
+            "naturalExpression": "Oh no! I think I burned the onions!",
+            "explanation": "burned 表示已经把食物烧焦了；这种表达很适合描述刚刚发生的小意外。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["burn", "burned the onions"] }
+          ]
+        },
+        {
+          "id": "onions-are-burning",
+          "text": "Oh no—the onions are burning!",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "紧急而自然",
+            "naturalExpression": "The onions are burning!",
+            "explanation": "are burning 强调食物此刻正在烧焦，需要马上采取行动。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["be burning"] }
+          ]
+        },
+        {
+          "id": "burned-too-much-awkward",
+          "text": "Oh no! I made the onions burn too much!",
+          "feedback": {
+            "naturalness": 3,
+            "assessment": "可以理解，但表达绕了一些",
+            "naturalExpression": "Oh no! I think I burned the onions!",
+            "explanation": "直接说 I burned the onions 更简洁；如果正在烧焦，可以说 The onions are burning。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-turns-off-heat",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "Turn off the heat!"
+    },
+    {
+      "id": "player-apologizes",
+      "type": "choice",
+      "speakerId": "player",
+      "prompt": "你忘记翻动洋葱了，想向老师道歉，会怎么说？",
+      "choices": [
+        {
+          "id": "forgot-to-stir",
+          "text": "Sorry! I forgot to stir them.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "简洁自然",
+            "naturalExpression": "Sorry! I forgot to stir them.",
+            "explanation": "forget to do 表示忘记去做某事；这里再次使用 stir，表示烹饪过程中翻动、搅拌洋葱。"
+          },
+          "rewards": [
+            { "type": "stat", "stat": "speaking", "amount": 3 },
+            { "type": "vocabulary", "words": ["forget to do", "turn off the heat"] }
+          ]
+        },
+        {
+          "id": "left-unattended",
+          "text": "I’m sorry. I left them on the heat for too long.",
+          "feedback": {
+            "naturalness": 5,
+            "assessment": "解释清楚、自然",
+            "naturalExpression": "I left them on the heat for too long.",
+            "explanation": "leave something on the heat 表示让食物一直留在火上；for too long 表示时间过久。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 3 }]
+        },
+        {
+          "id": "forgot-stirring-awkward",
+          "text": "Sorry! I forgot stirring them.",
+          "feedback": {
+            "naturalness": 2,
+            "assessment": "动词形式不正确",
+            "naturalExpression": "Sorry! I forgot to stir them.",
+            "explanation": "表示忘记要做某事时使用 forget to do，因此是 forgot to stir。"
+          },
+          "rewards": [{ "type": "stat", "stat": "speaking", "amount": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "instructor-reassures",
+      "type": "line",
+      "speakerId": "instructor",
+      "text": "It’s okay. They’re not completely ruined. We caught them just in time!",
+      "endScenario": true
+    }
+  ]
+}

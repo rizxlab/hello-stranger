@@ -18,7 +18,8 @@ export interface StoryResourceBundle {
 const resourceModules = import.meta.glob<StoryResourceBundle>(
   [
     '../scenes/stories/*/resources.ts',
-    '../scenes/shorts/series/*/resources.ts'
+    '../scenes/shorts/series/*/resources.ts',
+    '../scenes/themes/*/resources.ts'
   ],
   {
     eager: true,
