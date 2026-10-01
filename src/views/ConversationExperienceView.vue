@@ -14,7 +14,7 @@ import {
   listConversationScenarios
 } from '@/scenes/conversations'
 import { getShortSceneSeries } from '@/scenes/shorts'
-import { getThemeCategory } from '@/scenes/themes'
+import { getThemeCategory, listThemeSections } from '@/scenes/themes'
 import { getNextConversationExperienceId } from '@/systems/ConversationNavigationSystem'
 
 const route = useRoute()
@@ -52,6 +52,22 @@ const experienceKindLabel = computed(() =>
     ? `Lesson ${session.experience.value.number}`
     : collection.value?.experienceLabel ?? 'Conversation'
 )
+const experienceNumber = computed(() => {
+  const experience = session.experience.value
+  if (!experience) return ''
+
+  for (const section of listThemeSections(seriesId.value)) {
+    for (const topic of section.topics) {
+      const chapter = topic.chapters.find(
+        (item) => item.experienceId === experience.id &&
+          (!item.scenarioId || item.scenarioId === session.currentScenario.value?.id)
+      )
+      if (chapter) return `${topic.number}-${chapter.code}`
+    }
+  }
+
+  return String(experience.number ?? experience.order).padStart(2, '0')
+})
 const directoryRoute = computed(() => ({
   name: theme.value
     ? 'theme-category' as const
@@ -167,7 +183,7 @@ watch(
 
       <header class="lesson-header">
         <span>{{ experienceKindLabel }} · 情景 {{ scenarioPosition }}</span>
-        <strong>{{ session.experience.value.title }}</strong>
+        <strong>{{ experienceNumber }} {{ session.experience.value.title }}</strong>
       </header>
 
       <div class="top-actions">
