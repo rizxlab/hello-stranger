@@ -43,7 +43,10 @@ defineEmits<{
       <p class="feedback-assessment">{{ feedback.assessment }}</p>
     </div>
 
-    <div v-if="feedback.naturalExpression" class="feedback-section natural-expression">
+    <div
+      v-if="feedback.naturalExpression && feedback.naturalExpression.trim() !== expression.trim()"
+      class="feedback-section natural-expression"
+    >
       <p class="feedback-label">更自然的表达</p>
       <p class="feedback-expression">“{{ feedback.naturalExpression }}”</p>
     </div>

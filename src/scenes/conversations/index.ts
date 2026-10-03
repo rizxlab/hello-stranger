@@ -111,7 +111,7 @@ function expandCatalogLesson(
                 naturalness: 4,
                 assessment: '自然、可以使用',
                 naturalExpression: lesson.natural,
-                explanation: `这种说法可以理解并用于当前情景；更推荐记住：${lesson.natural}`
+                explanation: lesson.alternativeExplanation
               },
               rewards: [{ type: 'stat', stat: 'speaking', amount: 2 }]
             },
@@ -122,7 +122,7 @@ function expandCatalogLesson(
                 naturalness: 2,
                 assessment: '可以猜出意思，但不够自然',
                 naturalExpression: lesson.natural,
-                explanation: `${lesson.tip} 建议使用上面的自然表达。`
+                explanation: lesson.awkwardExplanation
               },
               rewards: [{ type: 'stat', stat: 'speaking', amount: 1 }]
             }

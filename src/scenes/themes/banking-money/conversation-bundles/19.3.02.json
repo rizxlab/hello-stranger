@@ -67,7 +67,7 @@
           "id": "turn-03",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "关于「转账」，你想说明遇到的问题或处理后的情况，会怎么说？",
           "choices": [
             {
               "id": "turn-03-choice-01",
@@ -76,7 +76,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "The transfer keeps failing.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“keeps failing”说明操作反复失败，区别于偶尔一次出错。"
               },
               "rewards": [
                 {
@@ -93,7 +93,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I tried several times, but it won’t go through.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "先交代一部分情况，再补充限制或不同之处，避免对方只根据前半句作判断。"
               },
               "rewards": [
                 {
@@ -110,7 +110,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I get an error message every time I try to send it.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“error message”指报错提示；说明出现在哪一步，有助于对方排查。"
               },
               "rewards": [
                 {
@@ -127,7 +127,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "The app says the transfer can’t be completed.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“can’t be completed”用被动结构表示操作无法完成，适合转述系统提示。"
               },
               "rewards": [
                 {
@@ -144,7 +144,7 @@
                 "naturalness": 1,
                 "assessment": "当前表达不够合适",
                 "naturalExpression": "The transfer keeps failing.",
-                "explanation": "这个表达存在语法或语境问题。更建议说：“The transfer keeps failing.”"
+                "explanation": "“success”是名词，“successful”是形容词，不能直接跟在“didn’t / can’t”后作动词；这里可说“didn’t go through”。"
               },
               "rewards": [
                 {
@@ -166,7 +166,7 @@
           "id": "turn-05",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想说明转账失败后账户余额的情况，会怎么说？",
           "choices": [
             {
               "id": "turn-05-choice-01",
@@ -175,7 +175,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "No, my balance hasn’t changed.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“hasn’t”与过去分词搭配说明截至现在仍未完成的事，方便对方判断当前进度。"
               },
               "rewards": [
                 {
@@ -192,7 +192,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I don’t think so. Let me check.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“I don’t think”把不同意见表达为自己的判断，而不是直接断定对方错误。"
               },
               "rewards": [
                 {
@@ -209,7 +209,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Yes, the money was deducted, but the transfer shows as failed.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "转折后的内容说明当前需要注意的不同情况，能把顾虑或限制说清楚。"
               },
               "rewards": [
                 {
@@ -226,7 +226,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "It shows as pending, so I’m not sure whether it went through.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "明确表达不确定，让对方知道需要进一步确认，而不是把猜测当作事实。"
               },
               "rewards": [
                 {
@@ -248,7 +248,7 @@
           "id": "turn-07",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想确认信息或告诉对方已经完成，会怎么说？",
           "choices": [
             {
               "id": "turn-07-choice-01",
@@ -257,7 +257,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Yes. The account details are correct.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "先直接肯定或否定，再补充细节；对方能先听清结论，再理解具体情况。"
               },
               "rewards": [
                 {
@@ -274,7 +274,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I’ll check them again now.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“will”在这里交代接下来的决定或行动，让对方知道自己会怎样继续。"
               },
               "rewards": [
                 {
@@ -291,7 +291,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Could the transfer have been blocked for another reason?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "把需要的行动明确说出来，并用礼貌用语缓和请求；对方能直接回应能否做到。"
               },
               "rewards": [
                 {
@@ -308,7 +308,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Is there a limit on how much I can transfer?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“How much”可问金额或不可数事物的量；这里把所需数额直接作为问题重点。"
               },
               "rewards": [
                 {
@@ -330,7 +330,7 @@
           "id": "turn-09",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "关于「转账」，你想让对方了解你的需求或来意，会怎么说明？",
           "choices": [
             {
               "id": "turn-09-choice-01",
@@ -339,7 +339,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Thanks. I’d like to know whether I should try again.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“would like”清楚表达需求，语气比直接说“want”更委婉，适合提出请求或表达偏好。"
               },
               "rewards": [
                 {
@@ -356,7 +356,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Okay. I just don’t want to accidentally send the money twice.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "明确说明哪件事没有发生或无法进行，把问题落在具体动作上。"
               },
               "rewards": [
                 {
@@ -406,7 +406,7 @@
           "id": "turn-03",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想补充商家办理退款的时间，会怎么说？",
           "choices": [
             {
               "id": "turn-03-choice-01",
@@ -415,7 +415,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "The store said they issued it five days ago.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“issued it”表示已经发出或办理该项内容，可用于转述商家对处理进度的说明。"
               },
               "rewards": [
                 {
@@ -432,7 +432,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I was told the refund was processed last week.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“was told”表示这是此前被告知的信息；交代来源，有助于核对不同说法。"
               },
               "rewards": [
                 {
@@ -449,7 +449,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "The merchant says they’ve already sent the money back.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“already”强调事情已经发生或完成，适合核对进度与时间先后。"
               },
               "rewards": [
                 {
@@ -466,7 +466,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I’m not sure of the exact date, but I have the refund confirmation.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -483,7 +483,7 @@
                 "naturalness": 3,
                 "assessment": "可以理解，但还可以更自然",
                 "naturalExpression": "The store said they issued it five days ago.",
-                "explanation": "能理解，但 refund hasn't arrived/shown up 更自然"
+                "explanation": "“returned my money”已经像钱退到了手里；商家说已退款但未到账，可说“The refund hasn’t shown up”。"
               },
               "rewards": [
                 {
@@ -505,7 +505,7 @@
           "id": "turn-05",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想了解退换或退款的处理办法，会怎么说？",
           "choices": [
             {
               "id": "turn-05-choice-01",
@@ -514,7 +514,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Yes, I have an email confirming the refund.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -531,7 +531,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Yes. I can provide the refund reference number.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -548,7 +548,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I have a screenshot of the confirmation.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "交代与当前有关的经历或已完成的事，让对方了解这次沟通的背景。"
               },
               "rewards": [
                 {
@@ -565,7 +565,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "No, they only told me verbally.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "先直接肯定或否定，再补充细节；对方能先听清结论，再理解具体情况。"
               },
               "rewards": [
                 {
@@ -587,7 +587,7 @@
           "id": "turn-07",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想了解时间安排或需要等多久，会怎么问？",
           "choices": [
             {
               "id": "turn-07-choice-01",
@@ -596,7 +596,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "How long should I wait before contacting you again?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“How long”询问持续时长，而不是具体几点。"
               },
               "rewards": [
                 {
@@ -613,7 +613,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Can you see whether the refund is pending?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -630,7 +630,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Is there any way to trace the refund?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -647,7 +647,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Should I contact the merchant again as well?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“as well”表示也、还，常用于在已有事项上补充另一项需求。"
               },
               "rewards": [
                 {
@@ -691,7 +691,7 @@
           "id": "turn-02",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "关于「转账」，你想让对方了解你的需求或来意，会怎么说明？",
           "choices": [
             {
               "id": "turn-02-choice-01",
@@ -700,7 +700,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I’d like to check the status of a transaction.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“transaction”指一笔交易，日期和金额有助于定位对应记录。"
               },
               "rewards": [
                 {
@@ -717,7 +717,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I’m calling about a transfer I made a few days ago.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "开头就交代来访或来电目的，帮助对方判断该查询什么、由谁处理。"
               },
               "rewards": [
                 {
@@ -734,7 +734,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Could you help me find out what’s happening with a refund?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -751,7 +751,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "There’s a transaction showing as pending, and I’d like to know why.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“transaction”指一笔交易，日期和金额有助于定位对应记录。"
               },
               "rewards": [
                 {
@@ -768,7 +768,7 @@
                 "naturalness": 3,
                 "assessment": "可以理解，但还可以更自然",
                 "naturalExpression": "I’d like to check the status of a transaction.",
-                "explanation": "能理解，但语气偏冲"
+                "explanation": "“where my money is”容易听成质问；说明是哪笔退款或转账，再问处理状态，更方便查询。"
               },
               "rewards": [
                 {
@@ -790,7 +790,7 @@
           "id": "turn-04",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想提供待查询交易的时间和金额，会怎么说？",
           "choices": [
             {
               "id": "turn-04-choice-01",
@@ -799,7 +799,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "It was $250 on September 3rd.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "给出金额和日期，能把待查交易与其他记录区分开。"
               },
               "rewards": [
                 {
@@ -816,7 +816,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "I sent $400 three days ago.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "提供自己经历或做过的具体情况，让对方能在已知信息上继续确认。"
               },
               "rewards": [
                 {
@@ -833,7 +833,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "The refund was for $79.99, and it was issued last Monday.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“refund”指退款，指退还已支付的款项。"
               },
               "rewards": [
                 {
@@ -850,7 +850,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Sure. I have the transaction details in front of me.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“transaction”指一笔交易，日期和金额有助于定位对应记录。"
               },
               "rewards": [
                 {
@@ -872,7 +872,7 @@
           "id": "turn-06",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想询问交易迟迟未完成的原因或时间，会怎么说？",
           "choices": [
             {
               "id": "turn-06-choice-01",
@@ -881,7 +881,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Do you know why it’s still pending?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "询问对方是否掌握所需信息，也给“不清楚”留出回答空间。"
               },
               "rewards": [
                 {
@@ -898,7 +898,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "When should it be completed?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "询问时间或时机，便于对方给出具体安排，减少对等待或操作时间的猜测。"
               },
               "rewards": [
                 {
@@ -915,7 +915,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Is there anything I need to do?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "直接说明必要的需求，便于对方了解要解决什么；配合具体内容，比只说需要帮忙更清楚。"
               },
               "rewards": [
                 {
@@ -932,7 +932,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Can the transaction still be canceled at this point?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“transaction”指一笔交易，日期和金额有助于定位对应记录。"
               },
               "rewards": [
                 {
@@ -954,7 +954,7 @@
           "id": "turn-08",
           "type": "choice",
           "speakerId": "player",
-          "prompt": "在当前情景下，你会怎么回应？",
+          "prompt": "你想进一步确认时间，会怎么问？",
           "choices": [
             {
               "id": "turn-08-choice-01",
@@ -963,7 +963,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Okay. When should I contact you again if it hasn’t changed?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "征求建议或确认下一步，适合流程不熟悉时请对方指导。"
               },
               "rewards": [
                 {
@@ -980,7 +980,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Is there a reference number I should keep?",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "先确认有没有所需的物品、服务或安排，为后面的选择提供依据。"
               },
               "rewards": [
                 {
@@ -997,7 +997,7 @@
                 "naturalness": 5,
                 "assessment": "自然、符合当前情景",
                 "naturalExpression": "Got it. I’ll keep an eye on the transaction. Thanks for your help.",
-                "explanation": "这个表达自然、清楚，符合当前对话语境。"
+                "explanation": "“transaction”指一笔交易，日期和金额有助于定位对应记录。"
               },
               "rewards": [
                 {

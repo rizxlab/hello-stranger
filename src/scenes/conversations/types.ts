@@ -26,6 +26,8 @@ export interface ConversationLessonCatalogEntry {
   awkward: string
   response: string
   tip: string
+  alternativeExplanation: string
+  awkwardExplanation: string
   vocabulary: string[]
 }
 

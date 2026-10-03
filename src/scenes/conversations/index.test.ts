@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { listThemeSections } from '@/scenes/themes'
 import { ConversationSequenceSystem } from '@/systems/ConversationSequenceSystem'
+import lessonCatalog from '@/scenes/shorts/series/dk-conversations/lesson-catalogs/lessons-01-87.json'
 import {
   getConversationExperience,
   getConversationScenario,
@@ -63,6 +64,22 @@ async function loadAllAvailableThemeExperiences(): Promise<void> {
 }
 
 describe('theme conversation content registry', () => {
+  it('keeps each catalog choice connected to its own explanation', () => {
+    for (const lesson of lessonCatalog.lessons) {
+      const scenario = listConversationScenarios(`dk-lesson-${lesson.number}`)[0]
+      const turn = scenario?.turns.find((item) => item.type === 'choice')
+      expect(turn?.type).toBe('choice')
+      if (turn?.type !== 'choice') continue
+
+      expect(turn.choices.map((choice) => choice.feedback.explanation)).toEqual([
+        lesson.tip,
+        lesson.alternativeExplanation,
+        lesson.awkwardExplanation
+      ])
+      expect(new Set(turn.choices.map((choice) => choice.feedback.explanation)).size).toBe(3)
+    }
+  })
+
   it('registers all 1014 supplied theme chapters', async () => {
     await loadAllAvailableThemeExperiences()
     const experiences = populatedThemeIds.flatMap((themeId) =>
